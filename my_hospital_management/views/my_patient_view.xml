@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="project_hospital_patient_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="company_type" position="replace">
+            </field>
+
+            <data>
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="reference"/>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="before">
+                    <br/>
+                </xpath>
+                <xpath expr="//field[@name='function']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='vat']" position="replace">
+                    <field name="pat_age" string="Patient Age"/>
+                </xpath>
+
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+
+
+                <!--                <xpath expr="//field[@name='type']" position="attributes">-->
+                <!--                    <attribute name="attrs">{'invisible':1}</attribute>-->
+                <!--                </xpath>-->
+
+                <xpath expr="//div[@class='o_address_format']" position="attributes">
+                    <attribute name="string">Address</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='website']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='title']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='category_id']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">Name</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='street']" position="attributes">
+                    <attribute name="string">Address</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='contact_addresses']" position="replace">
+                </xpath>
+
+                <xpath expr="//page[@name='sales_purchases']" position="replace">
+                </xpath>
+
+                <xpath expr="//page[@name='internal_notes']" position="replace">
+                </xpath>
+
+                <xpath expr="//page[@name='accounting']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='pat_age']" position="before">
+                    <field name="pat_gender" string="Gender"/>
+                </xpath>
+
+                <xpath expr="//field[@name='pat_gender']" position="before">
+                    <field name="patient_primary_doctor" string="Primary Doctor"/>
+                </xpath>
+            </data>
+            <notebook>
+                <page string="Basic Info">
+                    <group string="Patient Basic info">
+                        <group>
+                            <field name="patient_blood_type"/>
+                            <!--                                                        <field name="patient_primary_doctor"/>-->
+                        </group>
+                        <group>
+                            <field name="rh"/>
+                            <field name="patient_deceased"/>
+                        </group>
+                    </group>
+                    <group string="Exercise and Addictions">
+                        <group>
+                            <field name="patient_exercise_info"/>
+                        </group>
+                        <group>
+                            <field name="patient_smokes"/>
+                            <field name="patient_drinks_alcohol"/>
+                            <field name="patient_drug_addict"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Past Diseases"></page>
+                <page string="Medication History"></page>
+                <page string="Vaccination History">
+<!--                    <group>-->
+<!--                        <field name="hospital_management_vaccination_ids">-->
+<!--                            <tree editable="bottom">-->
+<!--                                <field name="vaccine_name"/>-->
+<!--                                <field name="vaccine_dose"/>-->
+<!--                                <field name="vaccine_date"/>-->
+<!--                            </tree>-->
+<!--                            <form>-->
+<!--                                <group>-->
+<!--                                    <group>-->
+<!--                                        <field name="vaccine_name"/>-->
+<!--                                    </group>-->
+<!--                                    <group>-->
+<!--                                        <field name="vaccine_dose"/>-->
+<!--                                    </group>-->
+<!--                                    <group>-->
+<!--                                        <field name="vaccine_date"/>-->
+<!--                                    </group>-->
+<!--                                </group>-->
+<!--                            </form>-->
+<!--                        </field>-->
+<!--                    </group>-->
+                </page>
+            </notebook>
+
+        </field>
+
+    </record>
+
+    <record id="view_patient_tree" model="ir.ui.view">
+        <field name="name">my_hospital_management.patient.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_patient_form" model="ir.ui.view">
+        <field name="name">my_hospital_management.patient.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <!--                <sheet>-->
+                <!--                    <field name="image" widget="image" class="oe_left oe_avatar"/>-->
+
+                <!--                    <group>-->
+                <!--                        <group>-->
+                <!--                            <field name="name"/>-->
+                <!--                            <field name="gender"/>-->
+                <!--                        </group>-->
+                <!--                        <group>-->
+                <!--                            <field name="age"/>-->
+                <!--                            <field name="notes"/>-->
+                <!--                        </group>-->
+                <!--                    </group>-->
+                <!--                </sheet>-->
+            </form>
+        </field>
+    </record>
+
+    <record id="my_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <!--        <field name="help" type="html">-->
+        <!--            <p class="o_view_nocontent_smiling_face">-->
+        <!--                Create your new patient!-->
+        <!--            </p>-->
+        <!--        </field>-->
+
+
+    </record>
+
+
+    <menuitem id="my_hospital_management_root"
+              name="My Hospital Management"
+              sequence="1"/>
+
+    <menuitem id="my_hospital_patient_root"
+              name="Patients"
+              parent="my_hospital_management_root"
+              sequence="10"/>
+
+    <menuitem id="hospital_patient"
+              name="Patients"
+              parent="my_hospital_patient_root"
+              action="my_patient_action"
+              sequence="10"/>
+
+</odoo>

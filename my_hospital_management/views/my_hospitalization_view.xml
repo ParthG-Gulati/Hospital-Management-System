@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--    <record id="view_my_hospitalization_tree" model="ir.ui.view">-->
+<!--        <field name="name">my_hospital_management.hospitalization.tree</field>-->
+<!--        <field name="model">hospital.hospitalization</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="hospitalization_sequence"/>-->
+<!--                <field name="name_id"/>-->
+<!--                <field name="doctor_id"/>-->
+<!--                <field name="hospitalization_date"/>-->
+<!--                <field name="state"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_my_hospitalization_form" model="ir.ui.view">-->
+<!--        <field name="name">my_hospital_management.hospitalization.form</field>-->
+<!--        <field name="model">hospital.hospitalization</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form>-->
+<!--                <header>-->
+<!--                    <button id="button_drafted" name="action_drafted" string="Draft" class="btn_primary"-->
+<!--                            states="discharged,canceled"-->
+<!--                            type="object"/>-->
+<!--                    <button id="button_confirmed" name="action_confirmed" string="Confirm" class="btn_primary"-->
+<!--                            states="draft, canceled"-->
+<!--                            type="object"/>-->
+<!--                    <button id="button_hospitalized" name="action_hospitalized" string="Hospitalize" class="btn_primary"-->
+<!--                            states="confirmed, canceled"-->
+<!--                            type="object"/>-->
+<!--                    <button id="button_discharged" name="action_discharged" string="Discharge" class="btn_primary"-->
+<!--                            states="hospitalized, canceled"-->
+<!--                            type="object"/>-->
+<!--                    <button id="button_canceled" name="action_canceled" string="Cancel" class="btn_primary"-->
+<!--                            states="hospitalized,drafted,confirmed,discharged"-->
+<!--                            type="object"/>-->
+<!--                    <field name="state" widget="statusbar"/>-->
+<!--                </header>-->
+<!--                <sheet>-->
+<!--                    <div class="oe_title">-->
+<!--                        <h1>-->
+<!--                            <field name="hospitalization_sequence"/>-->
+
+<!--                        </h1>-->
+<!--                    </div>-->
+<!--                    <group string="Patient details">-->
+
+<!--                        <group>-->
+<!--                            <field name="name_id"/>-->
+<!--                            <field name="hospitalization_date"/>-->
+<!--                            <field name="reason_for_admission"/>-->
+<!--                            <field name="remarks"/>-->
+<!--                        </group>-->
+
+<!--                        <group>-->
+<!--                            <field name="doctor_id"/>-->
+<!--                            <field name="discharge_date"/>-->
+<!--                        </group>-->
+
+<!--                    </group>-->
+
+<!--                    <group string="Treatment Plan">-->
+<!--                        <field name="treatment_plan"/>-->
+<!--                        <field name="discharge_plan"/>-->
+<!--                    </group>-->
+
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="my_hospitalization_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Hospitalization</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">hospital.hospitalization</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        &lt;!&ndash;        <field name="help" type="html">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <p class="o_view_nocontent_smiling_face">&ndash;&gt;-->
+<!--        &lt;!&ndash;                Create your new patient!&ndash;&gt;-->
+<!--        &lt;!&ndash;            </p>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </field>&ndash;&gt;-->
+
+
+<!--    </record>-->
+<!--    <menuitem id="my_hospital_management_root"-->
+<!--              name="My Hospital Management"-->
+<!--              sequence="1"/>-->
+
+<!--    <menuitem id="my_hospital_hospitalization_root"-->
+<!--              name="Hospitalization"-->
+<!--              parent="my_hospital_management_root"-->
+<!--              sequence="50"/>-->
+
+<!--    <menuitem id="hospital_hospitalization"-->
+<!--              name="Hospitalization"-->
+<!--              parent="my_hospital_hospitalization_root"-->
+<!--              action="my_hospitalization_action"-->
+<!--              sequence="50"/>-->
+</odoo>

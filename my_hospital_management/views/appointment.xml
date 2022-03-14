@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+
+    <record id="calendar_event_inherit" model="ir.ui.view">
+        <field name="name">calendar.event.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_ids" position="replace">
+            </field>
+
+            <data>
+
+                <xpath expr="//button[@name='action_open_composer']" position="replace">
+                </xpath>
+
+                <xpath expr="//div[@name='send_buttons']" position="replace"/>
+
+<!--                <xpath expr="//field[@name='name']" position="attributes">-->
+<!--                    <attribute name="required">False</attribute>-->
+<!--                </xpath>-->
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">Routine Checkup</attribute>
+                </xpath>
+
+                <xpath expr="//div[@class='oe_title mb-3']" position="after">
+                    <group>
+                        <group>
+                            <field name="patient_app" string="Patient Name"/>
+                            <field name="hospitalization_selection"/>
+                        </group>
+
+                        <group>
+                            <field name="doctor_app" string="Doctor"/>
+                        </group>
+                    </group>
+                </xpath>
+
+<!--                <xpath expr="//field[@name=name]" position="after">-->
+<!--                    <field name="hospitalization_selection"/>-->
+<!--                </xpath>-->
+
+                <xpath expr="//field[@name='location']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='videocall_location']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='categ_ids']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='allday']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='page_invitations']" position="replace">
+                </xpath>
+
+
+
+            </data>
+        </field>
+    </record>
+
+    <record id="calendar_event_tree_inherit" model="ir.ui.view">
+        <field name="name">calendar.event.tree</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+        <field name="arch" type="xml">
+<!--            <field name="partner_ids" position="replace">-->
+<!--            </field>-->
+            <data>
+
+                <xpath expr="//field[@name='partner_ids']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='alarm_ids']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='categ_ids']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='recurrency']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='show_as']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='location']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='description']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='privacy']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="patient_app"/>
+                </xpath>
+
+                <xpath expr="//field[@name='patient_app']" position="after">
+                    <field name="doctor_app"/>
+                </xpath>
+
+
+
+            </data>
+
+
+        </field>
+
+    </record>
+
+    <record id="calendar_event_tree" model="ir.ui.view">
+        <field name="name">calendar.event.tree</field>
+        <field name="model">calendar.event</field>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+    <record id="calendar_event_action" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">calendar.event</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <!--        <field name="help" type="html">-->
+        <!--            <p class="o_view_nocontent_smiling_face">-->
+        <!--                Create your new patient!-->
+        <!--            </p>-->
+        <!--        </field>-->
+
+
+    </record>
+    <menuitem id="my_hospital_management_root"
+              name="My Hospital Management"
+              sequence="1"/>
+
+    <menuitem id="calendar_event_root"
+              name="Appointments"
+              parent="my_hospital_management_root"
+              sequence="10"/>
+
+    <menuitem id="calendar_event"
+              name="Appointments"
+              parent="calendar_event_root"
+              action="calendar_event_action"
+              sequence="10"/>
+</odoo>

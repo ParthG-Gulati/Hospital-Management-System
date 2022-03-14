@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sale_order_inpatient_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inpatient.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Patient Name</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='validity_date']" position="before">
+                    <field name="attending_doctor_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='validity_date']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='sale_order_template_id']" position="replace">
+                </xpath>
+
+                <label for="pricelist_id" position="replace">
+                </label>
+
+                <label for="date_order" position="replace">
+                    <label for="date_order" string="Hospitalization Date"/>
+                </label>
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="validity_date"/>
+                </xpath>
+
+                <xpath expr="//field[@name='validity_date']" position="attributes">
+                    <attribute name="string">Expected Discharge</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='pricelist_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='payment_term_id']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="string">Medicine</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='order_lines']" position="attributes">
+                    <attribute name="string">Consumed Medicines</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='note']" position="replace">
+                </xpath>
+
+
+            </data>
+        </field>
+    </record>
+
+
+
+    <record id="sale_order_inpatient_action" model="ir.actions.act_window">
+        <field name="name">Inpatient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="my_hospital_management_root"
+              name="My Hospital Management"
+              sequence="1"/>
+
+    <menuitem id="sale_order_root"
+              name="Admissions"
+              parent="my_hospital_management_root"
+              sequence="20"/>
+
+    <menuitem id="sale_order_inpatient"
+              name="Inpatient"
+              parent="sale_order_root"
+              action="sale_order_inpatient_action"
+              sequence="20"/>
+</odoo>

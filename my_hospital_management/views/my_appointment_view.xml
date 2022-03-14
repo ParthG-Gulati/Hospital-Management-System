@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--    <record id="view_my_appointment_tree" model="ir.ui.view">-->
+<!--        <field name="name">my_hospital_management.appointment.tree</field>-->
+<!--        <field name="model">my_hospital.appointment</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="appointment_sequence"/>-->
+<!--                <field name="name_id"/>-->
+<!--                <field name="doctor_id"/>-->
+<!--                <field name="patient_urgency"/>-->
+<!--                <field name="appointment_start"/>-->
+<!--                <field name="appointment_end"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_my_appointment_calendar" model="ir.ui.view">-->
+<!--        <field name="name">my_hospital_management.appointment.calendar</field>-->
+<!--        <field name="model">my_hospital.appointment</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <calendar string="Appointment Calendar" date_start="appointment_start" color="name_id">-->
+<!--                <field name="name_id"/>-->
+<!--                <field name="appointment_sequence"/>-->
+<!--            </calendar>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_my_appointment_form" model="ir.ui.view">-->
+<!--        <field name="name">my_hospital_management.appointment.form</field>-->
+<!--        <field name="model">my_hospital.appointment</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form>-->
+<!--                <sheet>-->
+
+<!--                    <div class="oe_title">-->
+<!--                        <h1>-->
+<!--                            <field name="appointment_sequence"/>-->
+<!--                        </h1>-->
+<!--                    </div>-->
+
+<!--                    <group>-->
+
+<!--                        <group>-->
+<!--                            <field name="name_id"/>-->
+<!--                            <field name="appointment_start"/>-->
+<!--                            <field name="patient_type"/>-->
+<!--                        </group>-->
+
+<!--                        <group>-->
+<!--                            <field name="doctor_id"/>-->
+<!--                            <field name="appointment_end"/>-->
+<!--                            <field name="patient_urgency"/>-->
+<!--                        </group>-->
+
+<!--                    </group>-->
+
+<!--                    <notebook>-->
+<!--                        <page string="remarks" name="remarks">-->
+<!--                            <field name="patient_notes"/>-->
+<!--                        </page>-->
+<!--                    </notebook>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+<!--    <record id="my_appointment_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Appointments</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">my_hospital.appointment</field>-->
+<!--        <field name="view_mode">calendar,tree,form</field>-->
+<!--        &lt;!&ndash;        <field name="help" type="html">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <p class="o_view_nocontent_smiling_face">&ndash;&gt;-->
+<!--        &lt;!&ndash;                Create your new patient!&ndash;&gt;-->
+<!--        &lt;!&ndash;            </p>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </field>&ndash;&gt;-->
+
+
+<!--    </record>-->
+
+<!--    <menuitem id="my_hospital_management_root"-->
+<!--              name="My Hospital Management"-->
+<!--              sequence="1"/>-->
+
+<!--    <menuitem id="my_hospital_appointment_root"-->
+<!--              name="Appointments"-->
+<!--              parent="my_hospital_management_root"-->
+<!--              sequence="10"/>-->
+
+<!--    <menuitem id="hospital_appointment"-->
+<!--              name="Appointments"-->
+<!--              parent="my_hospital_appointment_root"-->
+<!--              action="my_appointment_action"-->
+<!--              sequence="10"/>-->
+</odoo>

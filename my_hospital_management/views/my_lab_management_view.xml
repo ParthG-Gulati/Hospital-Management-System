@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="my_lab_management_action" model="ir.actions.act_window">
+        <field name="name">Lab Tests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.laboratory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="my_hospital_management_root"
+              name="My Hospital Management"
+              sequence="1"/>
+
+    <menuitem id="my_lab_management_root"
+              name="Lab Management"
+              parent="my_hospital_management_root"
+              sequence="30"/>
+
+    <menuitem id="my_lab_management"
+              name="Lab Tests"
+              parent="my_lab_management_root"
+              action="my_lab_management_action"
+              sequence="20"/>
+</odoo>

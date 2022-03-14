@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner,access.res.partner,model_res_partner,,1,1,1,1
+access_hr_employee,access.hr.employee,model_hr_employee,,1,1,1,1
+access_hospital_hospitalization,access.hospital.hospitalization,model_hospital_hospitalization,,1,1,1,1
+access_calendar_event,access.calendar.event,model_calendar_event,,1,1,1,1
+access_sale_order,access.sale.order,model_sale_order,,1,1,1,1
+access_my_hospital_prescription,access.my_hospital.prescription,model_my_hospital_prescription,,1,1,1,1
+
+
+

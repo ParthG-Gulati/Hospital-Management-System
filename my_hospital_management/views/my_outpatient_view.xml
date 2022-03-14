@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--    <record id="sale_order_outpatient_form_inherit" model="ir.ui.view">-->
+<!--        <field name="name">sale.order.outpatient.form</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--&lt;!&ndash;        <field name="mode">primary</field>&ndash;&gt;-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--&lt;!&ndash;            <field name="validity_date" position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;            </field>&ndash;&gt;-->
+<!--&lt;!&ndash;            <data>&ndash;&gt;-->
+<!--&lt;!&ndash;                <xpath expr="//field[@name='payment_term_id']" position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+<!--&lt;!&ndash;            </data>&ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="sale_order_outpatient_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Outpatients</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">sale.order</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="my_hospital_management_root"-->
+<!--              name="My Hospital Management"-->
+<!--              sequence="1"/>-->
+
+<!--    <menuitem id="sale_order_root"-->
+<!--              name="Admissions"-->
+<!--              parent="my_hospital_management_root"-->
+<!--              sequence="20"/>-->
+
+<!--    <menuitem id="sale_order_outpatient"-->
+<!--              name="Outpatients"-->
+<!--              parent="sale_order_root"-->
+<!--              action="sale_order_outpatient_action"-->
+<!--              sequence="20"/>-->
+</odoo>

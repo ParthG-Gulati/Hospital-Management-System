@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project_hospital_pharmacy_form" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <data>
+
+                <xpath expr="//field[@name='image_1920']" position="replace"/>
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">Product Name</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='variants']" position="replace"/>
+
+                <xpath expr="//group[@name='upsell']" position="replace"/>
+
+                <xpath expr="//group[@name='shop']" position="replace"/>
+
+                <xpath expr="//group[@name='product_template_images']" position="replace">
+                    <field name="sale_lines_ids">
+                        <tree editable="bottom">
+                            <field name="sold_quantity"/>
+                            <field name="remaining_quantity"/>
+                        </tree>
+                    </field>
+                </xpath>
+
+                <xpath expr="//group[@name='purchase']" position="after">
+                    <group name="purchases">
+                        <field name="purchase_lines_ids">
+                            <tree editable="bottom">
+                                <field name="vendor_name"/>
+                                <field name="purchase_quantity"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+
+                <xpath expr="//page[@name='invoicing']" position="replace"/>
+
+<!--                <xpath expr="//field[@name='detailed_type']" position="replace">-->
+<!--                    <field name="medicine_type"/>-->
+<!--                </xpath>-->
+
+                <xpath expr="//field[@name='invoice_policy']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1}</attribute>
+                </xpath>
+
+<!--                <xpath expr="//field[@name='default_code']" position="replace"/>-->
+
+<!--                <xpath expr="//field[@name='barcode']" position="replace"/>-->
+
+<!--                <xpath expr="//field[@name='categ_id']" position="replace"/>-->
+
+                <xpath expr="//field[@name='detailed_type']" position="replace">
+                    <field name="medicine_type"/>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_policy']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='default_code']" position="replace"/>
+
+                <xpath expr="//field[@name='barcode']" position="replace"/>
+
+                <xpath expr="//field[@name='categ_id']" position="replace"/>
+
+            </data>
+        </field>
+
+    </record>
+
+
+    <record id="my_pharmacy_action" model="ir.actions.act_window">
+        <field name="name">Pharmacy</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <!--        <field name="help" type="html">-->
+        <!--            <p class="o_view_nocontent_smiling_face">-->
+        <!--                Create your new patient!-->
+        <!--            </p>-->
+        <!--        </field>-->
+
+
+    </record>
+
+    <menuitem id="my_hospital_management_root"
+              name="My Hospital Management"
+              sequence="1"/>
+
+    <menuitem id="my_hospital_pharmacy_root"
+              name="Pharmacy"
+              parent="my_hospital_management_root"
+              action="my_pharmacy_action"
+              sequence="15"/>
+
+</odoo>
