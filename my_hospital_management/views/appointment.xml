@@ -37,7 +37,7 @@
                     <group>
                         <group>
                             <field name="patient_app" string="Patient Name"/>
-                            <field name="hospitalization_selection"/>
+<!--                            <field name="hospitalization_selection"/>-->
                         </group>
 
                         <group>
