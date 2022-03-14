@@ -3,6 +3,8 @@ from odoo import fields, models, api
 
 class LabManagement(models.Model):
     _name = 'hospital.laboratory'
+    _rec_name = 'test_no'
+
 
     test_no = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
                           default=lambda self: _('New'))
@@ -14,6 +16,13 @@ class LabManagement(models.Model):
     # test = fields.Many2one('test.type','Test Type')
     test_id = fields.Many2one('test.name', 'Test Name', required=True)
     report_line_ids = fields.One2many('report.line', 'report_name', 'Tests')
+    patient_age = fields.Integer(string='Age')
+    patient_gender = fields.Selection([
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other')
+    ], string='Gender', default='male')
+    patient_contact = fields.Char(string='Mobile No.')
 
     @api.model
     def create(self, vals):

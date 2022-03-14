@@ -25,7 +25,9 @@
         'views/my_hospital_pharmacy_view.xml',
         'views/my_lab_management_view.xml',
         'views/my_invoicing_view.xml',
-        'views/my_prescription_view.xml'
+        'views/my_prescription_view.xml',
+        'reports/lab_report.xml',
+        'reports/patient_report.xml'
     ],
     'demo': [],
     'installable': True,

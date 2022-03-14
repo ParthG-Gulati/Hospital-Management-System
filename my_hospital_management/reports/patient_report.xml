@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="patient_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xs-2" style="margin:auto;">
+                            </div>
+                            <center>
+                                <br></br>
+                                <h2 text-align="center">Patient Report</h2>
+                                <br></br>
+                                <div class="col-xs-16" style="margin:auto">
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">
+                                        <tr>
+                                            <td width="100%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <p style="text-align:center;">
+                                                                <strong>Patient:</strong>
+                                                            </p>
+                                                            <p style="text-align:center;">
+                                                                <strong>Mobile:</strong>
+                                                            </p>
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align:center;" t-field="o.lab_patient"/>
+                                                            <p style="text-align:center;" t-field="o.patient_contact"/>
+                                                        </td>
+
+                                                        <td>
+                                                            <p style="text-align:center;">
+                                                                <strong>Referred By:</strong>
+                                                            </p>
+                                                            <p style="text-align:center;">
+                                                                <strong>Analysis date:</strong>
+                                                            </p>
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align:center;" t-field="o.lab_doctor"/>
+                                                            <p style="text-align:center;" t-field="o.analysis_date"/>
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align:center;">
+                                                                <strong>Age:</strong>
+                                                            </p>
+                                                            <p style="text-align:center;">
+                                                                <strong>Gender:</strong>
+                                                            </p>
+
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align:center;" t-field="o.patient_age"/>
+                                                            <p style="text-align:center;" t-field="o.patient_gender"/>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
+                                    <br></br>
+                                    <h3 text-align="center">Test Results</h3>
+                                    <br></br>
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">
+                                        <tr>
+                                            <td>
+                                                <span style="text-align:center;">
+                                                    <strong>------ Test Name ------</strong>
+                                                </span>
+                                                <span style="text-align:center;">
+                                                    <strong>------ Result ------</strong>
+                                                </span>
+                                                <span style="text-align:center;">
+                                                    <strong>------ Normal Range ------</strong>
+                                                </span>
+                                                <span style="text-align:center;">
+                                                    <strong>------ Test Unit ------</strong>
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        <tr t-foreach='o.report_line_ids' t-as='line'>
+
+                                            <td>
+                                                <span style="text-align:left;" t-field="line.lab_test_name"/>
+                                            </td>
+                                            <td>
+                                                <span style="text-align:left;" t-field="line.test_result"/>
+                                            </td>
+                                            <td>
+                                                <span style="text-align:left;" t-field="line.normal_range"/>
+                                            </td>
+                                            <td>
+                                                <span style="text-align:left;" t-field="line.test_unit"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
+                                    <br></br>
+                                    <h4 text-align="center">----End of Report----</h4>
+                                </div>
+                            </center>
+                        </div>
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

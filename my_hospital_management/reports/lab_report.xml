@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <report
+        id="patient_lab_report"
+        string="Patient Report"
+        model="hospital.laboratory"
+        report_type="qweb-pdf"
+        name="my_hospital_management.patient_report"
+        file="my_hospital_management.patient_report"/>
+
+</odoo>
