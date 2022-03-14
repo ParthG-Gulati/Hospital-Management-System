@@ -11,6 +11,13 @@
             <field name="partner_ids" position="replace">
             </field>
 
+            <form>
+                <header>
+                    <button name="action_hospitalize" type="object" class="oe_highlight" string="Hospitalize"/>
+                </header>
+            </form>
+
+
             <data>
 
                 <xpath expr="//button[@name='action_open_composer']" position="replace">
