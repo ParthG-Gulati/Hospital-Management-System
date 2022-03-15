@@ -11,11 +11,11 @@
             <field name="partner_ids" position="replace">
             </field>
 
-            <form>
+            <xpath expr="//div[@class='alert alert-info oe_edit_only']" position="before">
                 <header>
                     <button name="action_hospitalize" type="object" class="oe_highlight" string="Hospitalize"/>
                 </header>
-            </form>
+            </xpath>
 
 
             <data>

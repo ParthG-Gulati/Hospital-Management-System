@@ -5,8 +5,10 @@ access_hospital_hospitalization,access.hospital.hospitalization,model_hospital_h
 access_calendar_event,access.calendar.event,model_calendar_event,,1,1,1,1
 access_sale_order,access.sale.order,model_sale_order,,1,1,1,1
 access_my_hospital_prescription,access.my_hospital.prescription,model_my_hospital_prescription,,1,1,1,1
+access_prescription_line,access.prescription.line,model_prescription_line,,1,1,1,1
 access_hospital_laboratory,access.hospital.laboratory,model_hospital_laboratory,,1,1,1,1
 access_test_name,access.test.name,model_test_name,,1,1,1,1
+access_test_type,access.test.type,model_test_type,,1,1,1,1
 access_report_line,access.report.line,model_report_line,,1,1,1,1
 access_report_line,access.report.line,model_report_line,,1,1,1,1
 access_hospitalproduct_purchase,access.hospitalproduct.purchase,model_hospitalproduct_purchase,,1,1,1,1

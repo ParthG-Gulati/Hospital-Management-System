@@ -68,42 +68,48 @@
                                     </table>
                                     <br></br>
                                     <br></br>
-                                    <h3 text-align="center">Test Results</h3>
-                                    <br></br>
-                                    <table class="table table-condensed" style="border: 3px solid black !important;">
-                                        <tr>
-                                            <td>
-                                                <span style="text-align:center;">
-                                                    <strong>------ Test Name ------</strong>
-                                                </span>
-                                                <span style="text-align:center;">
-                                                    <strong>------ Result ------</strong>
-                                                </span>
-                                                <span style="text-align:center;">
-                                                    <strong>------ Normal Range ------</strong>
-                                                </span>
-                                                <span style="text-align:center;">
-                                                    <strong>------ Test Unit ------</strong>
-                                                </span>
-                                            </td>
-                                        </tr>
 
-                                        <tr t-foreach='o.report_line_ids' t-as='line'>
+                                    <t t-if="o.report_line_ids">
+                                        <h3 text-align="center">Test Results</h3>
+                                        <br></br>
+                                        <table class="table table-sm o_main_table" style="border: 1px solid black !important;">
+                                            <thead>
+                                                <tr>
+                                                    <th name="th_type" class="text-left">
+                                                        <span>Type</span>
+                                                    </th>
 
-                                            <td>
-                                                <span style="text-align:left;" t-field="line.lab_test_name"/>
-                                            </td>
-                                            <td>
-                                                <span style="text-align:left;" t-field="line.test_result"/>
-                                            </td>
-                                            <td>
-                                                <span style="text-align:left;" t-field="line.normal_range"/>
-                                            </td>
-                                            <td>
-                                                <span style="text-align:left;" t-field="line.test_unit"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                                    <th name="th_result" class="text-left">
+                                                        <span>Result</span>
+                                                    </th>
+                                                    <th name="th_normal_range" class="text-left">
+                                                        <span>Normal Range</span>
+                                                    </th>
+                                                    <th name="th_test_unit" class="text-left">
+                                                        <span>Test Unit</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                             <t t-foreach="o.report_line_ids" t-as="line">
+                                                <tr>
+                                                    <td>
+                                                        <span t-field="line.lab_test_type"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.test_result"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.normal_range"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.test_unit"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+
+                                    </t>
+-->
                                     <br></br>
                                     <br></br>
                                     <h4 text-align="center">----End of Report----</h4>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
-    'name': 'My Hospital Management',
+    'name': 'My Hospital Management System',
     'version': '1.1',
     'summary': 'Hospital Management',
     'sequence': 1,

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <report
-        id="patient_lab_report"
-        string="Patient Report"
-        model="hospital.laboratory"
-        report_type="qweb-pdf"
-        name="my_hospital_management.patient_report"
-        file="my_hospital_management.patient_report"/>
+    <!--    <report-->
+    <!--        id="patient_lab_report"-->
+    <!--        string="Patient Report"-->
+    <!--        model="hospital.laboratory"-->
+    <!--        report_type="qweb-pdf"-->
+    <!--        name="my_hospital_management.patient_report"-->
+    <!--        file="my_hospital_management.patient_report"/>-->
 
+    <record id="patient_lab_report" model="ir.actions.report">
+        <field name="name">Patient Report</field>
+        <field name="model">hospital.laboratory</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">my_hospital_management.patient_report</field>
+        <field name="report_file">my_hospital_management.patient_report"</field>
+    </record>
 </odoo>

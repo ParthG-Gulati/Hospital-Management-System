@@ -32,7 +32,7 @@ class ResPartner(models.Model):
     def create(self, vals):
 
         if vals.get('reference', _('New')) == _('New'):
-            vals['reference'] = self.env['ir.sequence'].next_by_code('hospital.patient') or _('New')
+            vals['reference'] = self.env['ir.sequence'].next_by_code('res.partner') or _('New')
         res = super(ResPartner, self).create(vals)
         return res
 
