@@ -26,6 +26,7 @@
         'views/my_lab_management_view.xml',
         'views/my_invoicing_view.xml',
         'views/my_prescription_view.xml',
+        'views/website_appointment.xml',
         'reports/lab_report.xml',
         'reports/patient_report.xml'
     ],
