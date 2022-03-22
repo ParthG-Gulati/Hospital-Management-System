@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!--    <report-->
-    <!--        id="patient_lab_report"-->
-    <!--        string="Patient Report"-->
-    <!--        model="hospital.laboratory"-->
-    <!--        report_type="qweb-pdf"-->
-    <!--        name="my_hospital_management.patient_report"-->
-    <!--        file="my_hospital_management.patient_report"/>-->
+    <record id="patient_prescription_report" model="ir.actions.report">
+        <field name="name">Patient Prescription</field>
+        <field name="model">my_hospital.prescription</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">my_hospital_management.prescription_report</field>
+        <field name="report_file">my_hospital_management.prescription_report"</field>
+        <field name="binding_model_id" ref="model_my_hospital_prescription"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="patient_medical_report_card" model="ir.actions.report">
+        <field name="name">Patient Medical Report</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">my_hospital_management.medical_report</field>
+        <field name="report_file">my_hospital_management.medical_report"</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>
 
     <record id="patient_lab_report" model="ir.actions.report">
         <field name="name">Patient Report</field>
@@ -16,4 +28,5 @@
         <field name="report_name">my_hospital_management.patient_report</field>
         <field name="report_file">my_hospital_management.patient_report"</field>
     </record>
+
 </odoo>
