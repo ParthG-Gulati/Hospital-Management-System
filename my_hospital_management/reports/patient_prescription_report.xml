@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="prescription_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xs-2" style="margin:auto;">
+                            </div>
+                            <center>
+                                <br></br>
+                                <h2 text-align="center">Prescription Report</h2>
+                                <br></br>
+                                <div class="col-xs-16" style="margin:auto">
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">
+                                        <tr>
+                                            <td width="100%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <p style="text-align:center;">
+                                                                <strong>Prescription ID :</strong>
+                                                            </p>
+                                                            <p style="text-align:center;">
+                                                                <strong>Patient Name:</strong>
+                                                            </p>
+                                                        </td>
+
+                                                        <td>
+                                                            <p style="text-align:center;" t-field="o.prescription_id"/>
+                                                            <p style="text-align:center;"
+                                                               t-field="o.patient_prescription_name_id"/>
+                                                        </td>
+
+                                                        <td>
+                                                            <p style="text-align:center;">
+                                                                <strong>Prescribing Doctor :</strong>
+                                                            </p>
+                                                            <p style="text-align:center;">
+                                                                <strong>Prescription Date :</strong>
+                                                            </p>
+                                                        </td>
+
+                                                        <td>
+                                                            <p style="text-align:center;"
+                                                               t-field="o.doctor_prescription_name_id"/>
+                                                            <p style="text-align:center;"
+                                                               t-field="o.prescription_date"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
+                                    <h3 text-align="center">Prescription Details</h3>
+                                    <br></br>
+                                    <t t-if="o.prescription_line_ids">
+                                        <br></br>
+                                        <table class="table table-sm o_main_table"
+                                               style="border: 1px solid black !important;">
+                                            <thead>
+                                                <tr>
+                                                    <th name="th_medicine" class="text-left">
+                                                        <span>Medicine</span>
+                                                    </th>
+
+                                                    <th name="th_dose" class="text-left">
+                                                        <span>Dose</span>
+                                                    </th>
+                                                    <th name="th_time" class="text-left">
+                                                        <span>Time</span>
+                                                    </th>
+                                                    <th name="th_timing" class="text-left">
+                                                        <span>Timing</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <t t-foreach="o.prescription_line_ids" t-as="line">
+                                                <tr>
+                                                    <td>
+                                                        <span t-field="line.medicine_name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.medicine_dose"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.medicine_time"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.medicine_timing"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+
+                                    </t>
+                                    <br></br>
+                                    <div style="text-align:left;">
+                                    <span style="text-align:left;">
+                                        <strong>Diet Suggestion :</strong>
+                                    </span>
+                                    <span style="text-align:left;"
+                                       t-field="o.patient_diet"/>
+                                    <p>
+                                        <strong>Doctor Signature</strong>
+                                    </p>
+                                    </div>
+                                    <br></br>
+                                    <h4 text-align="center">----End of Report----</h4>
+                                </div>
+                            </center>
+                        </div>
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

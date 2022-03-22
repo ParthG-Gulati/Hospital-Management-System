@@ -1,0 +1,75 @@
+<odoo>
+
+    <template id="medical_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xs-2" style="margin:auto;">
+                            </div>
+                            <center>
+                                <br></br>
+                                <h2 text-align="center">Medical Card</h2>
+                                <br></br>
+                                <div class="col-xs-16" style="margin:auto">
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td width="100%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <div>
+                                                            <p style="text-align:left;">
+                                                                <strong>Patient Name : </strong>
+                                                            </p>
+                                                            <p style="text-align:left;">
+                                                                <strong>Mobile No : </strong>
+                                                            </p>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <p style="text-align:center;" t-field="o.name"/>
+                                                            <p style="text-align:center;" t-field="o.mobile"/>
+
+                                                        </td>
+
+                                                        <td>
+                                                            <div style="margin-left:50px">
+                                                            <p style="text-align:left;">
+                                                                <strong>Primary Doctor : </strong>
+                                                            </p>
+                                                            <p style="text-align:left;">
+                                                                <strong>Email : </strong>
+                                                            </p>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <p style="text-align:left;" t-field="o.patient_primary_doctor"/>
+                                                            <p style="text-align:left;" t-field="o.email"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br></br>
+                                    <h4 text-align="center">----End of Report----</h4>
+                                </div>
+                            </center>
+                        </div>
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
