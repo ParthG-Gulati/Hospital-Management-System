@@ -10,6 +10,19 @@
             <field name="parent_id" position="replace"/>
             <field name="coach_id" position="replace"/>
             <data>
+                <xpath expr="//button[@id='hr_presence_button']" position="replace"/>
+                <xpath expr="//page[@name='received_badges']" position="attributes">
+                    <attribute name="attrs">{'invisible':0}</attribute>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_open_appointment" type="object" class="oe_stat_button" icon="fa-calendar">
+                        <div class="o_stat_info">
+                            <field name="doc_appointment_count" class="o_stat_value"/>
+                            <span class="o_stat_text">Appointments</span>
+                        </div>
+                    </button>
+                </xpath>
+                <xpath expr="//button[@name='544']" position="replace"/>
                 <xpath expr="//field[@name='name']" position="attributes">
                     <attribute name="placeholder">Name</attribute>
                 </xpath>
@@ -19,7 +32,8 @@
                 </xpath>
 
                 <xpath expr="//field[@name='department_id']" position="attributes">
-                    <attribute name="domain">['|',('company_id', '=', 'True'), ('company_id', '=', 'company_id')]</attribute>
+                    <attribute name="domain">['|',('company_id', '=', 'True'), ('company_id', '=', 'company_id')]
+                    </attribute>
                 </xpath>
 
                 <xpath expr="//field[@name='department_id']" position="after">
@@ -53,23 +67,23 @@
         <field name="inherit_id" ref="hr.view_employee_tree"/>
         <field name="arch" type="xml">
 
-                <xpath expr="//field[@name='name']" position="attributes">
-                    <attribute name="string">Doctor Name</attribute>
-                </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Doctor Name</attribute>
+            </xpath>
             <xpath expr="//field[@name='name']" position="after">
-                    <field name="job_title" string="Specialist"/>
-                </xpath>
+                <field name="job_title" string="Specialist"/>
+            </xpath>
 
             <xpath expr="//field[@name='job_title']" position="after">
-                    <field name="job_title"/>
-                </xpath>
-                <xpath expr="//field[@name='activity_ids']" position="replace"/>
-                <xpath expr="//field[@name='activity_date_deadline']" position="replace"/>
-                <xpath expr="//field[@name='parent_id']" position="replace"/>
-                <xpath expr="//field[@name='job_id']" position="replace"/>
-                <xpath expr="//field[@name='category_ids']" position="replace"/>
-                <xpath expr="//field[@name='work_location_id']" position="replace"/>
-                <xpath expr="//field[@name='activity_user_id']" position="replace"/>
+                <field name="job_title"/>
+            </xpath>
+            <xpath expr="//field[@name='activity_ids']" position="replace"/>
+            <xpath expr="//field[@name='activity_date_deadline']" position="replace"/>
+            <xpath expr="//field[@name='parent_id']" position="replace"/>
+            <xpath expr="//field[@name='job_id']" position="replace"/>
+            <xpath expr="//field[@name='category_ids']" position="replace"/>
+            <xpath expr="//field[@name='work_location_id']" position="replace"/>
+            <xpath expr="//field[@name='activity_user_id']" position="replace"/>
 
         </field>
     </record>
@@ -80,11 +94,11 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.employee</field>
         <field name="view_mode">kanban,tree,form</field>
-                <field name="help" type="html">
-                    <p class="o_view_nocontent_smiling_face">
-                        Create your Doctor!
-                    </p>
-                </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your Doctor!
+            </p>
+        </field>
 
 
     </record>

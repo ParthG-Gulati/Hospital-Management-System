@@ -14,4 +14,8 @@ from . import purchase_add
 from . import sale_add
 from . import test_name
 from . import lab_report
+from . import patient_symptoms
+from . import disease_name
+from . import disease_report
+from . import my_vaccination
 

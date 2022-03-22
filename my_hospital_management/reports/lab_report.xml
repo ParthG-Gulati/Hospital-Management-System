@@ -16,4 +16,5 @@
         <field name="report_name">my_hospital_management.patient_report</field>
         <field name="report_file">my_hospital_management.patient_report"</field>
     </record>
+
 </odoo>

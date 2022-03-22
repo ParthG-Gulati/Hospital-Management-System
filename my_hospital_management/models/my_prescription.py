@@ -22,3 +22,7 @@ class HospitalPrescription(models.Model):
             vals['prescription_id'] = self.env['ir.sequence'].next_by_code('my_hospital.prescription') or _('New')
         res = super(HospitalPrescription, self).create(vals)
         return res
+
+    @api.model
+    def prescription_report_print(self):
+        return self.env.ref('my_hospital_management.my_patient_prescription_report').report_action(self)

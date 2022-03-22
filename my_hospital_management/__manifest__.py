@@ -28,7 +28,7 @@
         'views/my_prescription_view.xml',
         'views/website_appointment.xml',
         'reports/lab_report.xml',
-        'reports/patient_report.xml'
+        'reports/patient_report.xml',
     ],
     'demo': [],
     'installable': True,

@@ -13,7 +13,11 @@ access_report_line,access.report.line,model_report_line,,1,1,1,1
 access_report_line,access.report.line,model_report_line,,1,1,1,1
 access_hospitalproduct_purchase,access.hospitalproduct.purchase,model_hospitalproduct_purchase,,1,1,1,1
 access_saleproduct_report,access.saleproduct.report,model_saleproduct_report,,1,1,1,1
-
+access_patient_symptom,access.patient.symptom,model_patient_symptom,,1,1,1,1
+access_patient_disease,access.patient.disease,model_patient_disease,,1,1,1,1
+access_patient_disease_line,access.patient.disease.line,model_patient_disease_line,,1,1,1,1
+access_main_disease,access.main.disease,model_main_disease,,1,1,1,1
+access_hospital_vaccination,access.hospital.vaccination,model_hospital_vaccination,,1,1,1,1
 
 
 

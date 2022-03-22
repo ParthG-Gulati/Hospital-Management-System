@@ -2,7 +2,6 @@
 <odoo>
 
 
-
     <record id="calendar_event_inherit" model="ir.ui.view">
         <field name="name">calendar.event.form</field>
         <field name="model">calendar.event</field>
@@ -25,9 +24,9 @@
 
                 <xpath expr="//div[@name='send_buttons']" position="replace"/>
 
-<!--                <xpath expr="//field[@name='name']" position="attributes">-->
-<!--                    <attribute name="required">False</attribute>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//field[@name='name']" position="attributes">-->
+                <!--                    <attribute name="required">False</attribute>-->
+                <!--                </xpath>-->
 
                 <xpath expr="//field[@name='name']" position="attributes">
                     <attribute name="placeholder">Routine Checkup</attribute>
@@ -37,7 +36,7 @@
                     <group>
                         <group>
                             <field name="patient_app" string="Patient Name"/>
-<!--                            <field name="hospitalization_selection"/>-->
+                            <!--                            <field name="hospitalization_selection"/>-->
                         </group>
 
                         <group>
@@ -46,9 +45,9 @@
                     </group>
                 </xpath>
 
-<!--                <xpath expr="//field[@name=name]" position="after">-->
-<!--                    <field name="hospitalization_selection"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//field[@name=name]" position="after">-->
+                <!--                    <field name="hospitalization_selection"/>-->
+                <!--                </xpath>-->
 
                 <xpath expr="//field[@name='location']" position="replace">
                 </xpath>
@@ -68,7 +67,19 @@
 
                 <xpath expr="//page[@name='page_invitations']" position="replace">
                 </xpath>
+                <xpath expr="//page[@name='page_details']" position="after">
+                    <page name="symptom" string="Symptoms">
+                        <group name="Common Symptoms">
+                                <field name="symptom_lines">
+                                    <tree editable="bottom">
+                                        <field name="sequence_field"/>
+                                        <field name="symptom"/>
+                                    </tree>
+                                </field>
+                        </group>
+                    </page>
 
+                </xpath>
 
 
             </data>
@@ -80,8 +91,8 @@
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
         <field name="arch" type="xml">
-<!--            <field name="partner_ids" position="replace">-->
-<!--            </field>-->
+            <!--            <field name="partner_ids" position="replace">-->
+            <!--            </field>-->
             <data>
 
                 <xpath expr="//field[@name='partner_ids']" position="replace">
@@ -113,7 +124,6 @@
                 <xpath expr="//field[@name='patient_app']" position="after">
                     <field name="doctor_app"/>
                 </xpath>
-
 
 
             </data>

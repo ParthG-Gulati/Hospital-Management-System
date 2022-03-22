@@ -26,7 +26,11 @@ class ResPartner(models.Model):
     patient_smokes = fields.Boolean(string='Smokes')
     patient_drinks_alcohol = fields.Boolean(string='Drinks alcohol')
     patient_drug_addict = fields.Boolean(string='Drug addict')
-    # hospital_management_vaccination_ids = fields.One2many('hospital.vaccination', 'hospital_management_vaccine_id', string='Vaccination')
+    patient_disease_lines = fields.One2many('main.disease','patient_disease_line','Disease Record')
+    hospital_management_vaccination_ids = fields.One2many('hospital.vaccination', 'hospital_management_vaccine_id', string='Vaccination')
+    appointment_count = fields.Integer(string='Appointmnt Count',compute='patient_appointment_count')
+    lab_count = fields.Integer(string='Lab reports',compute='patient_lab_count')
+    prescription_count = fields.Integer(string='Prescription',compute='patient_prescription_count')
 
     @api.model
     def create(self, vals):
@@ -36,8 +40,51 @@ class ResPartner(models.Model):
         res = super(ResPartner, self).create(vals)
         return res
 
+    def patient_appointment_count(self):
+        for rec in self:
+            appointment_count=self.env['calendar.event'].search_count([('patient_app','=',rec.id)])
+            rec.appointment_count = appointment_count
+
+    def action_oppen_appointment(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Appointments',
+            'res_model':'calendar.event',
+            'domain' : [('patient_app','=',self.id)],
+            'view_mode': 'calendar,form,tree',
+            'target': 'current',
+        }
+
+    def patient_lab_count(self):
+        for rec in self:
+            lab_count=self.env['hospital.laboratory'].search_count([('lab_patient','=',rec.id)])
+            rec.lab_count = lab_count
+
+    def action_open_lab(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Lab Sessions',
+            'res_model':'hospital.laboratory',
+            'domain' : [('lab_patient','=',self.id)],
+            'view_mode': 'tree,form',
+            'target': 'current',
+        }
 
 
+    def patient_prescription_count(self):
+        for rec in self:
+            prescription_count=self.env['my_hospital.prescription'].search_count([('patient_prescription_name_id','=',rec.id)])
+            rec.prescription_count = prescription_count
+
+    def action_open_prescription(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Prescription',
+            'res_model':'my_hospital.prescription',
+            'domain' : [('patient_prescription_name_id','=',self.id)],
+            'view_mode': 'tree,form',
+            'target': 'current',
+        }
 
 
 
