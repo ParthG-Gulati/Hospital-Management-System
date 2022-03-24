@@ -31,3 +31,6 @@ class LabManagement(models.Model):
         res = super(LabManagement, self).create(vals)
         return res
 
+    def print_lab_test(self):
+        return self.env.ref('my_hospital_management.patient_lab_report').report_action(self)
+

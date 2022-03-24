@@ -13,8 +13,8 @@ class HospitalPrescription(models.Model):
     patient_diet = fields.Text(string='Diet Suggestion')
     diet_notes = fields.Text(string='Notes')
 
-
-
+    def print_report(self):
+        return self.env.ref('my_hospital_management.patient_prescription_report').report_action(self)
 
     @api.model
     def create(self, vals):
@@ -22,3 +22,5 @@ class HospitalPrescription(models.Model):
             vals['prescription_id'] = self.env['ir.sequence'].next_by_code('my_hospital.prescription') or _('New')
         res = super(HospitalPrescription, self).create(vals)
         return res
+
+

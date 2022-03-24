@@ -7,6 +7,39 @@
         <field name="arch" type="xml">
             <field name="company_type" position="replace">
             </field>
+<!--            <div class="oe_button_box" name="button_box"/>-->
+
+            <xpath expr="//div[@class='alert alert-warning oe_edit_only']" position="after">
+                <button name="print_medical_card" type="object" string="Print Medical Card" class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//button[@name='action_view_opportunity']" position="replace">
+                <button name="action_oppen_appointment" type="object" class="oe_stat_button" icon="fa-calendar">
+                    <div class="o_stat_info">
+                        <field name="appointment_count" class="o_stat_value"/>
+                        <span class="o_stat_text">Appointments</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//button[@name='action_oppen_appointment']" position="after">
+                <button name="action_open_lab" type="object" class="oe_stat_button" icon="fa-flask">
+                    <div class="o_stat_info">
+                        <field name="lab_count" class="o_stat_value"/>
+                        <span class="o_stat_text">Lab Sessions</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//button[@name='action_oppen_appointment']" position="after">
+                <button name="action_open_prescription" type="object" class="oe_stat_button" icon="fa-align-left">
+                    <div class="o_stat_info">
+                        <field name="prescription_count" class="o_stat_value"/>
+                        <span class="o_stat_text">Prescriptions</span>
+                    </div>
+                </button>
+            </xpath>
+<!--            <xpath expr="//button[@name='305']" position="replace"/>-->
+<!--            <xpath expr="//button[@name='schedule_meeting']" position="replace">-->
+<!--            </xpath>-->
+
 
             <data>
                 <xpath expr="//field[@name='name']" position="before">
@@ -80,11 +113,10 @@
                     <group string="Patient Basic info">
                         <group>
                             <field name="patient_blood_type"/>
-                            <!--                                                        <field name="patient_primary_doctor"/>-->
                         </group>
                         <group>
                             <field name="rh"/>
-                            <field name="patient_deceased"/>
+<!--                            <field name="patient_deceased"/>-->
                         </group>
                     </group>
                     <group string="Exercise and Addictions">
@@ -98,31 +130,54 @@
                         </group>
                     </group>
                 </page>
-                <page string="Past Diseases"></page>
-                <page string="Medication History"></page>
+                <page string="Diseases Record">
+                    <group>
+                        <field name="patient_disease_lines">
+                            <tree editable="bottom">
+                                <field name="patient_disease_sequence"/>
+                                <field name="my_patient_disease_name"/>
+                                <field name="patient_disease_status"/>
+                            </tree>
+                        </field>
+
+                    </group>
+                </page>
+                <page string="Medication History">
+                    <group>
+                        <field name="medication_line_ids">
+                            <tree editable="bottom">
+                                <field name="medication_name"/>
+                                <field name="medication_dose"/>
+                                <field name="medication_time"/>
+                                <field name="medication_timing"/>
+                            </tree>
+                        </field>
+
+                    </group>
+                </page>
                 <page string="Vaccination History">
-<!--                    <group>-->
-<!--                        <field name="hospital_management_vaccination_ids">-->
-<!--                            <tree editable="bottom">-->
-<!--                                <field name="vaccine_name"/>-->
-<!--                                <field name="vaccine_dose"/>-->
-<!--                                <field name="vaccine_date"/>-->
-<!--                            </tree>-->
-<!--                            <form>-->
-<!--                                <group>-->
-<!--                                    <group>-->
-<!--                                        <field name="vaccine_name"/>-->
-<!--                                    </group>-->
-<!--                                    <group>-->
-<!--                                        <field name="vaccine_dose"/>-->
-<!--                                    </group>-->
-<!--                                    <group>-->
-<!--                                        <field name="vaccine_date"/>-->
-<!--                                    </group>-->
-<!--                                </group>-->
-<!--                            </form>-->
-<!--                        </field>-->
-<!--                    </group>-->
+                    <group>
+                        <field name="hospital_management_vaccination_ids">
+                            <tree editable="bottom">
+                                <field name="vaccine_name"/>
+                                <field name="vaccine_dose"/>
+                                <field name="vaccine_date"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="vaccine_name"/>
+                                    </group>
+                                    <group>
+                                        <field name="vaccine_dose"/>
+                                    </group>
+                                    <group>
+                                        <field name="vaccine_date"/>
+                                    </group>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
                 </page>
             </notebook>
         </field>
@@ -136,7 +191,7 @@
 
             <xpath expr="//field[@name='category_id']" position="replace">
                 <field name="pat_gender"/>
-                </xpath>
+            </xpath>
 
             <xpath expr="//field[@name='display_name']" position="before">
                 <field name="reference" string="Patient Id"/>

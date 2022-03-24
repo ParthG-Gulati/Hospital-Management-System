@@ -6,7 +6,9 @@
                 <t t-call="web.external_layout">
 
                     <div class="page">
-
+<!--                        <p>-->
+<!--                            <img t-if="o.image_1920" t-att-src="'data:image_1920/png;base64,%s' % to_tect(o.image_1920)" height="120" border="1" width="120"/>-->
+<!--                        </p>-->
                         <div class="oe_structure"/>
                         <div class="row">
                             <div class="col-xs-2" style="margin:auto;">
@@ -20,45 +22,196 @@
                                         <tr>
                                             <td width="100%">
                                                 <table>
+                                                    <h3 text-align="center">Basic Details</h3>
                                                     <tr>
                                                         <td>
                                                             <div>
-                                                            <p style="text-align:left;">
-                                                                <strong>Patient Name : </strong>
-                                                            </p>
-                                                            <p style="text-align:left;">
-                                                                <strong>Mobile No : </strong>
-                                                            </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Patient Name :</strong>
+                                                                </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Mobile No :</strong>
+                                                                </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Patient Age : </strong>
+                                                                </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Blood Group : </strong>
+                                                                </p>
                                                             </div>
                                                         </td>
 
                                                         <td>
                                                             <p style="text-align:center;" t-field="o.name"/>
                                                             <p style="text-align:center;" t-field="o.mobile"/>
-
+                                                            <p style="text-align:left;" t-field="o.pat_age"/>
+                                                            <span style="text-align:center;" t-field="o.patient_blood_type"/>
+                                                            <span style="text-align:center;" t-field="o.rh"/>
                                                         </td>
 
                                                         <td>
                                                             <div style="margin-left:50px">
-                                                            <p style="text-align:left;">
-                                                                <strong>Primary Doctor : </strong>
-                                                            </p>
-                                                            <p style="text-align:left;">
-                                                                <strong>Email : </strong>
-                                                            </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Primary Doctor :</strong>
+                                                                </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Email :</strong>
+                                                                </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Patient Gender :</strong>
+                                                                </p>
+                                                                <p style="text-align:left;">
+                                                                    <strong>Address :</strong>
+                                                                </p>
+
                                                             </div>
                                                         </td>
 
                                                         <td>
                                                             <p style="text-align:left;" t-field="o.patient_primary_doctor"/>
                                                             <p style="text-align:left;" t-field="o.email"/>
+                                                            <p style="text-align:left;" t-field="o.pat_gender"/>
+                                                            <span style="text-align:center;" t-field="o.street"/>
+                                                            <span style="text-align:center;" t-field="o.street2"/>
+                                                            <span style="text-align:center;" t-field="o.city"/>
+                                                            <span style="text-align:center;" t-field="o.state_id"/>
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </td>
                                         </tr>
                                     </table>
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td width="100%">
+                                                <table>
+                                                    <t t-if="o.patient_disease_lines">
+                                                        <h3 text-align="center">Diseases Record</h3>
+                                                        <table class="table table-sm o_main_table"
+                                                               style="border: 1px solid black !important;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th name="th_type" class="text-left">
+                                                                        <span>Sr.no</span>
+                                                                    </th>
 
+                                                                    <th name="th_result" class="text-left">
+                                                                        <span>Diseases Name</span>
+                                                                    </th>
+                                                                    <th name="th_normal_range" class="text-left">
+                                                                        <span>Status</span>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <t t-foreach="o.patient_disease_lines" t-as="line">
+                                                                <tr>
+                                                                    <td>
+                                                                        <span t-field="line.patient_disease_sequence"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.my_patient_disease_name"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.patient_disease_status"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </t>
+                                                        </table>
+                                                    </t>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td width="100%">
+                                                <table>
+                                                    <t t-if="o.medication_line_ids">
+                                                        <h3 text-align="center">Medication Record</h3>
+                                                        <table class="table table-sm o_main_table"
+                                                               style="border: 1px solid black !important;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th name="th_type" class="text-left">
+                                                                        <span>Medicine Name</span>
+                                                                    </th>
+
+                                                                    <th name="th_result" class="text-left">
+                                                                        <span>Dose</span>
+                                                                    </th>
+                                                                    <th name="th_normal_range" class="text-left">
+                                                                        <span>Time</span>
+                                                                    </th>
+                                                                    <th name="th_normal_range" class="text-left">
+                                                                        <span>Timing</span>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <t t-foreach="o.medication_line_ids" t-as="line">
+                                                                <tr>
+                                                                    <td>
+                                                                        <span t-field="line.medication_name"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.medication_dose"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.medication_time"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.medication_timing"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </t>
+                                                        </table>
+                                                    </t>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br></br>
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td width="100%">
+                                                <table>
+                                                    <t t-if="o.hospital_management_vaccination_ids">
+                                                        <h3 text-align="center">Vaccination Record</h3>
+                                                        <table class="table table-sm o_main_table"
+                                                               style="border: 1px solid black !important;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th name="th_type" class="text-left">
+                                                                        <span>Vaccine Name</span>
+                                                                    </th>
+
+                                                                    <th name="th_result" class="text-left">
+                                                                        <span>Dose</span>
+                                                                    </th>
+                                                                    <th name="th_normal_range" class="text-left">
+                                                                        <span>Date</span>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <t t-foreach="o.hospital_management_vaccination_ids" t-as="line">
+                                                                <tr>
+                                                                    <td>
+                                                                        <span t-field="line.vaccine_name"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.vaccine_dose"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-field="line.vaccine_date"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </t>
+                                                        </table>
+                                                    </t>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <br></br>
                                     <h4 text-align="center">----End of Report----</h4>
                                 </div>

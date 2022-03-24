@@ -20,6 +20,9 @@
         <field name="model">hospital.laboratory</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="print_lab_test" type="object" string="Print Report" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -47,7 +50,7 @@
                         <page name="Lab Test Results" string="Lab Test results">
                             <field name="report_line_ids">
                                 <tree editable="bottom">
-                                    <field name="lab_test_type"/>
+                                    <field name="lab_test_type" required="True"/>
                                     <field name="test_result"/>
                                     <field name="normal_range"/>
                                     <field name="test_unit"/>

@@ -12,4 +12,4 @@ class LabTestType(models.Model):
     _name = 'test.type'
     _rec_name = 'lab_test_type'
 
-    lab_test_type=fields.Char(string="Type")
+    lab_test_type=fields.Char(string="Type",required=True)
