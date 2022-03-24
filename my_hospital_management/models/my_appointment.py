@@ -22,7 +22,6 @@ class HospitalAppointment(models.Model):
     patient_notes = fields.Text()
 
     @api.model
-    '''Sequence for appointments'''
     def create(self, vals):
 
         if vals.get('appointment_sequence', _('New')) == _('New'):

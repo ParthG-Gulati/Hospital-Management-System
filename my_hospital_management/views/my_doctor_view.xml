@@ -22,7 +22,7 @@
                         </div>
                     </button>
                 </xpath>
-                <xpath expr="//button[@name='568']" position="replace"/>
+<!--                <xpath expr="//button[@name='568']" position="replace"/>-->
                 <xpath expr="//field[@name='name']" position="attributes">
                     <attribute name="placeholder">Name</attribute>
                 </xpath>

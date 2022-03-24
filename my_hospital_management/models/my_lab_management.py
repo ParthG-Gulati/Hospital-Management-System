@@ -25,7 +25,6 @@ class LabManagement(models.Model):
     patient_contact = fields.Char(string='Mobile No.')
 
     @api.model
-    '''Sequence for Lab Test'''
     def create(self, vals):
         if vals.get('test_no', _('New')) == _('New'):
             vals['test_no'] = self.env['ir.sequence'].next_by_code('hospital.laboratory') or _('New')
