@@ -39,6 +39,7 @@ class HospitalHospitalization(models.Model):
 
     @api.model
     def create(self, vals):
+        '''Sequence for patients Hospitalize'''
         if vals.get('hospitalization_sequence', _('New')) == _('New'):
             vals['hospitalization_sequence'] = self.env['ir.sequence'].next_by_code('hospital.hospitalization') or _('New')
         res = super(HospitalHospitalization, self).create(vals)

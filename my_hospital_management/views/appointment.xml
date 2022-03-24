@@ -7,8 +7,8 @@
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
         <field name="arch" type="xml">
-            <field name="partner_ids" position="replace">
-            </field>
+<!--            <field name="partner_ids" position="replace">-->
+<!--            </field>-->
 
             <xpath expr="//div[@class='alert alert-info oe_edit_only']" position="before">
                 <header>
@@ -16,13 +16,19 @@
                 </header>
             </xpath>
 
+<!--            <label for="partner_ids" string="Patient"/>-->
+            <xpath expr="//field[@name='partner_ids']" position="before">
+                <label for="partner_ids" string="Patient  :"/>
+            </xpath>
+
+
 
             <data>
 
-                <xpath expr="//button[@name='action_open_composer']" position="replace">
-                </xpath>
+<!--                <xpath expr="//button[@name='action_open_composer']" position="replace">-->
+<!--                </xpath>-->
 
-                <xpath expr="//div[@name='send_buttons']" position="replace"/>
+<!--                <xpath expr="//div[@name='send_buttons']" position="replace"/>-->
 
                 <!--                <xpath expr="//field[@name='name']" position="attributes">-->
                 <!--                    <attribute name="required">False</attribute>-->
@@ -31,19 +37,43 @@
                 <xpath expr="//field[@name='name']" position="attributes">
                     <attribute name="placeholder">Routine Checkup</attribute>
                 </xpath>
-
-                <xpath expr="//div[@class='oe_title mb-3']" position="after">
-                    <group>
-                        <group>
-                            <field name="patient_app" string="Patient Name"/>
-                            <!--                            <field name="hospitalization_selection"/>-->
-                        </group>
-
-                        <group>
-                            <field name="doctor_app" string="Doctor"/>
-                        </group>
-                    </group>
+                <xpath expr="//div[@class='d-flex align-items-baseline']" position="after">
+                    <br/>
+                    <label for="doctor_app" string="Doctor :"/>
+                    <field name="doctor_app" string="Doctor" placeholder="select doctor"/>
+                    <br/>
                 </xpath>
+
+<!--                <xpath expr="//div[@class='oe_title mb-3']" position="after">-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="patient_app" string="Patient Name"/>-->
+<!--                            <div class="d-flex align-items-baseline">-->
+<!--                                <field name="partner_ids" widget="many2manyattendee" placeholder="Select attendees..."-->
+<!--                                       context="{'force_email':True}" class="oe_inline o_calendar_attendees"/>-->
+<!--                                <div name="send_buttons" class="sm-2">-->
+<!--                                    <button name="action_open_composer" help="Send Email to attendees" type="object"-->
+<!--                                            string=" EMAIL" icon="fa-envelope"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="alert alert-warning o_form_header mt-2"-->
+<!--                                 attrs="{'invisible': [('invalid_email_partner_ids', '=', [])]}" role="status">-->
+<!--                                <p>-->
+<!--                                    <strong>The following attendees have invalid email addresses and won't receive any-->
+<!--                                        email notifications:-->
+<!--                                    </strong>-->
+<!--                                </p>-->
+<!--                                <field name="invalid_email_partner_ids" widget="many2manyattendee"-->
+<!--                                       class="oe_inline o_calendar_attendees"/>-->
+<!--                            </div>-->
+                            <!--                            <field name="hospitalization_selection"/>-->
+<!--                        </group>-->
+
+<!--                        <group>-->
+<!--                            <field name="doctor_app" string="Doctor"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </xpath>-->
 
                 <!--                <xpath expr="//field[@name=name]" position="after">-->
                 <!--                    <field name="hospitalization_selection"/>-->
@@ -70,12 +100,12 @@
                 <xpath expr="//page[@name='page_details']" position="after">
                     <page name="symptom" string="Symptoms">
                         <group name="Common Symptoms">
-                                <field name="symptom_lines">
-                                    <tree editable="bottom">
-                                        <field name="sequence_field"/>
-                                        <field name="symptom"/>
-                                    </tree>
-                                </field>
+                            <field name="symptom_lines">
+                                <tree editable="bottom">
+                                    <field name="sequence_field" string="No."/>
+                                    <field name="symptom"/>
+                                </tree>
+                            </field>
                         </group>
                     </page>
 

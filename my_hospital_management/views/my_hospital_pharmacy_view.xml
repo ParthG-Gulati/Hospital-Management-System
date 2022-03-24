@@ -6,6 +6,7 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
+
             <data>
 
                 <xpath expr="//field[@name='image_1920']" position="replace"/>
@@ -16,39 +17,37 @@
 
                 <xpath expr="//page[@name='variants']" position="replace"/>
 
-                <xpath expr="//group[@name='upsell']" position="replace"/>
+<!--                <xpath expr="//group[@name='upsell']" position="replace"/>-->
 
                 <xpath expr="//group[@name='shop']" position="replace"/>
 
                 <xpath expr="//group[@name='product_template_images']" position="replace">
-                    <field name="sale_lines_ids">
-                        <tree>
-                            <field name="sold_quantity"/>
-                            <field name="remaining_quantity"/>
-                        </tree>
-                    </field>
+<!--                    <group name="Sells Details">-->
+<!--                        <tree editable="bottom">-->
+<!--                            <field name="quantity_sold"/>-->
+<!--                            <field name="quantity_remaining"/>-->
+<!--                        </tree>-->
+<!--                    </group>-->
                 </xpath>
 
-                <xpath expr="//group[@name='purchase']" position="after">
-                    <group name="purchases">
-                        <field name="purchase_lines_ids">
-                            <tree>
-                                <field name="vendor_name"/>
-                                <field name="purchase_quantity"/>
-                            </tree>
-                        </field>
-                    </group>
-                </xpath>
+<!--                <xpath expr="//group[@name='purchase']" position="after">-->
+<!--                    <group name="purchases">-->
+<!--                        <group>-->
+<!--                            <field name="vendor"/>-->
+<!--                            <field name="quantity_purchase"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </xpath>-->
 
                 <xpath expr="//page[@name='invoicing']" position="replace"/>
 
-<!--                <xpath expr="//field[@name='detailed_type']" position="replace">-->
-<!--                    <field name="medicine_type"/>-->
+<!--                <xpath expr="//field[@name='invoice_policy']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible' : 1}</attribute>-->
 <!--                </xpath>-->
 
-                <xpath expr="//field[@name='invoice_policy']" position="attributes">
-                    <attribute name="attrs">{'invisible' : 1}</attribute>
-                </xpath>
+<!--                <xpath expr="//field[@name='invoice_policy']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible' : 1}</attribute>-->
+<!--                </xpath>-->
 
 <!--                <xpath expr="//field[@name='default_code']" position="replace"/>-->
 
@@ -56,20 +55,23 @@
 
 <!--                <xpath expr="//field[@name='categ_id']" position="replace"/>-->
 
-                <xpath expr="//field[@name='detailed_type']" position="replace">
-                    <field name="medicine_type"/>
-                </xpath>
-
-                <xpath expr="//field[@name='invoice_policy']" position="attributes">
-                    <attribute name="attrs">{'invisible' : 1}</attribute>
-                </xpath>
-
-                <xpath expr="//field[@name='default_code']" position="replace"/>
-
-                <xpath expr="//field[@name='barcode']" position="replace"/>
-
-                <xpath expr="//field[@name='categ_id']" position="replace"/>
-
+<!--                <xpath expr="//field[@name='detailed_type']" position="after">-->
+<!--                    <field name="medicine_type"/>-->
+<!--                    <field name="barcode"/>-->
+<!--                    <field name="default_code"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='detailed_type']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible':1}</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//group[@name='operations']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='action_open_label_layout']" position="replace">-->
+<!--                    <button id="btn_wiz_sell" name="wizard_sell" string="Update Sell" type="object"/>-->
+<!--                    <button id="btn_wiz_purchase" name="wizard_purchase" string="Update Purchases" type="object"/>-->
+<!--                </xpath>-->
+                <!--                <xpath expr="//button[@name='open_pricelist_rules']" position="replace"/>-->
+                <!--                <xpath expr="//button[@name='open_pricelist_rules']" position="replace"/>-->
+                <!--                <xpath expr="//button[@name='open_pricelist_rules']" position="replace"/>-->
+                <!--                -->
             </data>
         </field>
 

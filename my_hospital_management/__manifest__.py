@@ -10,7 +10,7 @@
     'category': 'Productivity',
     'website': 'https://www.odoo.com',
     'images': [],
-    'depends': ['base', 'hr', 'calendar', 'sale', 'sale_management', 'account'],
+    'depends': ['base', 'hr', 'calendar', 'sale', 'sale_management', 'account','stock'],
     'data': [
         'security/ir.model.access.csv',
         'data/sequence.xml',

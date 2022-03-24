@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <field name="company_type" position="replace">
             </field>
+<!--            <field name="user_id" attrs="{'invisible':1}"/>-->
 <!--            <div class="oe_button_box" name="button_box"/>-->
             <xpath expr="//button[@name='action_view_opportunity']" position="replace">
                 <button name="action_oppen_appointment" type="object" class="oe_stat_button" icon="fa-calendar">
@@ -32,7 +33,7 @@
                     </div>
                 </button>
             </xpath>
-            <xpath expr="//button[@name='338']" position="replace"/>
+<!--            <xpath expr="//button[@name='338']" position="replace"/>-->
             <xpath expr="//button[@name='schedule_meeting']" position="replace">
             </xpath>
 
@@ -56,6 +57,15 @@
                 <xpath expr="//field[@name='parent_id']" position="attributes">
                     <attribute name="attrs">{'invisible': 1}</attribute>
                 </xpath>
+                <xpath expr="//button[@name='action_event_view']" position="replace">
+
+                </xpath>
+<!--                <xpath expr="//button[@name='186']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='912']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='910']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='311']" position="replace"/>-->
+                <xpath expr="//button[@name='action_view_courses']" position="replace"/>
+                <xpath expr="//button[@name='action_open_employees']" position="replace"/>
 
 
                 <!--                <xpath expr="//field[@name='type']" position="attributes">-->
@@ -86,9 +96,12 @@
                 <xpath expr="//page[@name='contact_addresses']" position="replace">
                 </xpath>
 
-                <xpath expr="//page[@name='sales_purchases']" position="replace">
+<!--                <xpath expr="//page[@name='sales_purchases']" position="replace">-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='user_id']" position="replace"/>-->
+                <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
                 </xpath>
-
                 <xpath expr="//page[@name='internal_notes']" position="replace">
                 </xpath>
 
@@ -132,7 +145,8 @@
                             <tree editable="bottom">
                                 <field name="patient_disease_sequence"/>
                                 <field name="my_patient_disease_name"/>
-                                <field name="patient_disease_status"/>
+                                <field name="patient_disease_status"  decoration-danger="patient_disease_status=='two'" decoration-success="patient_disease_status=='one'" style="font-weight: bold;" />
+<!--                                <field name="patient_disease_status" style="color:blue;" attrs="{'invisible':[('patient_disease_status','!=','two')]}"/>-->
                             </tree>
                         </field>
 

@@ -11,7 +11,7 @@ class HospitalAppointmentInherited(models.Model):
 
 
     def action_hospitalize(self):
-        '''jbkbg'''
+        '''If patient needs to hospitalize open hospitalize directly'''
         return{
             'res_model': 'sale.order',
             'type': 'ir.actions.act_window',
