@@ -20,6 +20,9 @@
         <field name="model">hospital.laboratory</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="print_lab_test" type="object" string="Print Report" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>

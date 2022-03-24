@@ -12,6 +12,7 @@
 
             <xpath expr="//div[@class='alert alert-info oe_edit_only']" position="before">
                 <header>
+                    <button name="action_confirm" type="object" class="oe_highlight" string="Confirm"/>
                     <button name="action_hospitalize" type="object" class="oe_highlight" string="Hospitalize"/>
                 </header>
             </xpath>

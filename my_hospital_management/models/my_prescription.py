@@ -13,8 +13,8 @@ class HospitalPrescription(models.Model):
     patient_diet = fields.Text(string='Diet Suggestion')
     diet_notes = fields.Text(string='Notes')
 
-
-
+    def print_report(self):
+        return self.env.ref('my_hospital_management.patient_prescription_report').report_action(self)
 
     @api.model
     def create(self, vals):
@@ -24,7 +24,3 @@ class HospitalPrescription(models.Model):
         res = super(HospitalPrescription, self).create(vals)
         return res
 
-    @api.model
-    def prescription_report_print(self):
-        '''report action'''
-        return self.env.ref('my_hospital_management.my_patient_prescription_report').report_action(self)

@@ -20,6 +20,7 @@ access_main_disease,access.main.disease,model_main_disease,,1,1,1,1
 access_hospital_vaccination,access.hospital.vaccination,model_hospital_vaccination,,1,1,1,1
 access_sale_update,access.sale.update,model_sale_update,,1,1,1,1
 access_purchase_update,access.purchase.update,model_purchase_update,,1,1,1,1
+access_medication_line,access.medication.line,model_medication_line,,1,1,1,1
 
 
 

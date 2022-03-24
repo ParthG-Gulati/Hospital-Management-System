@@ -68,6 +68,50 @@
         </field>
     </record>
 
+    <record id="sale_order_inpatient_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inpatient.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='date_order']" position="attributes">
+                <attribute name="string">Hospitalization Date</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='expected_date']" position="replace">
+            </xpath>
+
+            <xpath expr="//field[@name='commitment_date']" position="replace">
+            </xpath>
+
+            <xpath expr="//field[@name='website_id']" position="replace">
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="string">Patient Name</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="replace">
+                <field name="attending_doctor_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='activity_ids']" position="replace">
+                <field name="validity_date" string="Expected Discharge"/>
+            </xpath>
+
+            <xpath expr="//field[@name='team_id']" position="replace">
+            </xpath>
+
+            <xpath expr="//field[@name='company_id']" position="replace">
+            </xpath>
+
+            <xpath expr="//field[@name='tag_ids']" position="replace">
+            </xpath>
+
+        </field>
+
+    </record>
+
 
 
     <record id="sale_order_inpatient_action" model="ir.actions.act_window">

@@ -19,7 +19,9 @@
         <field name="model">my_hospital.prescription</field>
         <field name="arch" type="xml">
             <form>
-                <button name="prescription_report_print" type="object" string="print" class="oe_highlight"/>
+                <header>
+                    <button name="print_report" type="object" string="Print" class="oe_highlight"/>
+                </header>
                 <sheet>
 
                     <div class="oe_title">

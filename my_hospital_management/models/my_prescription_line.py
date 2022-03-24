@@ -5,7 +5,7 @@ class HospitalPrescriptionLine(models.Model):
     _name = "prescription.line"
     _description = "prescription of doctor"
 
-    medicine_id = fields.Many2one('my_hospital.prescription', string="Medicine_")
+    medicine_id = fields.Many2one('my_hospital.prescription', string="Medicine")
     medicine_name = fields.Many2one('product.template', string="Medicine")
 
     medicine_dose = fields.Integer(string='Dose')
