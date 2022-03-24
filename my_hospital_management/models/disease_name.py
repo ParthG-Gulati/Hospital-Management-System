@@ -2,7 +2,6 @@ from odoo import fields,api,models
 
 class DiseaseName(models.Model):
     _name='patient.disease'
-    _rec_name = 'disease_name'
     disease_name=fields.Char(string="Disease Name")
 
 class Diseaseslines(models.Model):

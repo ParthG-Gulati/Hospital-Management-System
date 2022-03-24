@@ -11,7 +11,9 @@ class HrEmployee(models.Model):
     doctor_visitor = fields.Boolean(string="Visitor", default=False)
     doc_appointment_count = fields.Integer(string='Appointmnt Count', compute='doctor_appointment_count')
 
+
     def doctor_appointment_count(self):
+        '''Appointments Counts for doctors'''
         for rec in self:
             doc_appointment_count = self.env['calendar.event'].search_count([('doctor_app', '=', rec.id)])
             rec.doc_appointment_count = doc_appointment_count

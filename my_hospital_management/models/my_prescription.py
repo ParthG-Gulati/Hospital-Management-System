@@ -18,9 +18,9 @@ class HospitalPrescription(models.Model):
 
     @api.model
     def create(self, vals):
+        '''Sequence for prescription'''
         if vals.get('prescription_id', ('New')) == ('New'):
             vals['prescription_id'] = self.env['ir.sequence'].next_by_code('my_hospital.prescription') or _('New')
         res = super(HospitalPrescription, self).create(vals)
         return res
-
 

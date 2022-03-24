@@ -8,3 +8,5 @@ class SaleReport(models.Model):
 
     sold_quantity = fields.Integer(string='Quantity Sold')
     remaining_quantity = fields.Integer(string='Quantity Remaining')
+
+

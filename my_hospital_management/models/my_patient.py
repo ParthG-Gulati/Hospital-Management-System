@@ -56,11 +56,13 @@ class ResPartner(models.Model):
         return res
 
     def patient_appointment_count(self):
+        '''Patients Appointments Count'''
         for rec in self:
             appointment_count=self.env['calendar.event'].search_count([('patient_app','=',rec.id)])
             rec.appointment_count = appointment_count
 
     def action_oppen_appointment(self):
+        '''Open Appointment from patient form'''
         return {
             'type': 'ir.actions.act_window',
             'name': 'Appointments',
@@ -71,11 +73,13 @@ class ResPartner(models.Model):
         }
 
     def patient_lab_count(self):
+        '''Lab test Count for Patient'''
         for rec in self:
             lab_count=self.env['hospital.laboratory'].search_count([('lab_patient','=',rec.id)])
             rec.lab_count = lab_count
 
     def action_open_lab(self):
+        '''Open Lab test'''
         return {
             'type': 'ir.actions.act_window',
             'name': 'Lab Sessions',
@@ -87,11 +91,13 @@ class ResPartner(models.Model):
 
 
     def patient_prescription_count(self):
+        '''Prescriptions by doctor'''
         for rec in self:
             prescription_count=self.env['my_hospital.prescription'].search_count([('patient_prescription_name_id','=',rec.id)])
             rec.prescription_count = prescription_count
 
     def action_open_prescription(self):
+        '''Open prescription'''
         return {
             'type': 'ir.actions.act_window',
             'name': 'Prescription',
