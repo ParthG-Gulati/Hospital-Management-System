@@ -75,12 +75,8 @@
 
     <menuitem id="my_lab_management_root"
               name="Lab Management"
+              action="my_lab_management_action"
               parent="my_hospital_management_root"
               sequence="30"/>
 
-    <menuitem id="my_lab_management"
-              name="Lab Tests"
-              parent="my_lab_management_root"
-              action="my_lab_management_action"
-              sequence="20"/>
 </odoo>

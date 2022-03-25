@@ -12,7 +12,7 @@ class WebsiteAppoitment(http.Controller):
     @http.route('/appointment/placed/',type='http',auth='public',website=True)
     def create_appointment(self,**kwargs):
         val_list = {
-            'partner_ids' : kwargs.get('patient_name'),
+            'patient_app' : kwargs.get('patient_name'),
             'name' : kwargs.get('meeting_subject'),
             'start' : kwargs.get('appointment_date'),
             'doctor_app' : kwargs.get('doctor_name'),

@@ -13,6 +13,7 @@
     'depends': ['base', 'hr', 'calendar', 'sale', 'sale_management', 'account','stock'],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'data/sequence.xml',
         'views/my_patient_view.xml',
         'views/my_doctor_view.xml',

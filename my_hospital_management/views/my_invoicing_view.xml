@@ -71,14 +71,4 @@
               name="My Hospital Management"
               sequence="1"/>
 
-    <menuitem id="account_move_root"
-              name="Invoicing"
-              parent="my_hospital_management_root"
-              sequence="30"/>
-
-    <menuitem id="account_move"
-              name="Invoices"
-              parent="account_move_root"
-              action="account_move_action"
-              sequence="20"/>
 </odoo>

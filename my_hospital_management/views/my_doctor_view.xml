@@ -53,6 +53,9 @@
 
                 <xpath expr="//group[@name='has_work_permit']" position="replace">
                 </xpath>
+                <xpath expr="//field[@name='work_email']" position="after">
+                    <field name="user_id"/>
+                </xpath>
 
 
             </data>
@@ -110,11 +113,6 @@
     <menuitem id="my_hospital_doctor_root"
               name="Doctor"
               parent="my_hospital_management_root"
-              sequence="10"/>
-
-    <menuitem id="hospital_doctor"
-              name="Doctor"
-              parent="my_hospital_doctor_root"
               action="my_doctor_action"
               sequence="10"/>
 

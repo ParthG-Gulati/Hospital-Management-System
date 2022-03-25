@@ -104,15 +104,5 @@
               name="My Hospital Management"
               sequence="1"/>
 
-    <menuitem id="sale_order_root"
-              name="Admissions"
-              parent="my_hospital_management_root"
-              sequence="20"/>
-
-    <menuitem id="sale_order_outpatient"
-              name="Outpatient"
-              parent="sale_order_root"
-              action="action_outpatient"
-              sequence="25"/>
 
 </odoo>
