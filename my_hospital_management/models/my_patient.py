@@ -30,7 +30,7 @@ class ResPartner(models.Model):
     patient_disease_lines = fields.One2many('main.disease','patient_disease_line','Disease Record')
     medication_line_ids = fields.One2many('medication.line', 'medication_id', 'Medications')
     hospital_management_vaccination_ids = fields.One2many('hospital.vaccination', 'hospital_management_vaccine_id', string='Vaccination')
-    appointment_count = fields.Integer(string='Appointmnt Count',compute='patient_appointment_count', store=True)
+    appointment_count = fields.Integer(string='Appointmnt Count',compute='patient_appointment_count',store=True)
     lab_count = fields.Integer(string='Lab reports',compute='patient_lab_count')
     prescription_count = fields.Integer(string='Prescription',compute='patient_prescription_count')
 
