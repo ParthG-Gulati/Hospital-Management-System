@@ -1,12 +1,14 @@
-from odoo import fields,api,models
+from odoo import fields, api, models
+
 
 class DiseaseName(models.Model):
-    _name='patient.disease'
-    disease_name=fields.Char(string="Disease Name")
+    _name = 'patient.disease'
+    _rec_name = 'disease_name'
+    disease_name = fields.Char(string="Disease Name")
+
 
 class Diseaseslines(models.Model):
     _name = 'patient.disease.line'
-
 
     disease_line = fields.Many2one('res.partner')
     disease_sequence = fields.Integer(string="No.")

@@ -30,7 +30,7 @@ class ResPartner(models.Model):
     patient_disease_lines = fields.One2many('main.disease','patient_disease_line','Disease Record')
     medication_line_ids = fields.One2many('medication.line', 'medication_id', 'Medications')
     hospital_management_vaccination_ids = fields.One2many('hospital.vaccination', 'hospital_management_vaccine_id', string='Vaccination')
-    appointment_count = fields.Integer(string='Appointmnt Count',compute='patient_appointment_count')
+    appointment_count = fields.Integer(string='Appointmnt Count',compute='patient_appointment_count', store=True)
     lab_count = fields.Integer(string='Lab reports',compute='patient_lab_count')
     prescription_count = fields.Integer(string='Prescription',compute='patient_prescription_count')
 
@@ -39,7 +39,7 @@ class ResPartner(models.Model):
         '''To Validate Age Cannot be 0'''
         for rec in self:
             if rec.pat_age == 0:
-                raise ValidationError("Age cannot be zero")    \
+                raise ValidationError("Age cannot be zero")
 
     @api.constrains('mobile')
     def check_mobile(self):
@@ -58,7 +58,7 @@ class ResPartner(models.Model):
     def patient_appointment_count(self):
         '''Patients Appointments Count'''
         for rec in self:
-            appointment_count=self.env['calendar.event'].search_count([('patient_app','=',rec.id)])
+            appointment_count=self.env['calendar.event'].search_count([('partner_ids','=',rec.id)])
             rec.appointment_count = appointment_count
 
     def action_oppen_appointment(self):
@@ -67,7 +67,7 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
             'name': 'Appointments',
             'res_model':'calendar.event',
-            'domain' : [('patient_app','=',self.id)],
+            'domain' : [('partner_ids','=',self.id)],
             'view_mode': 'calendar,form,tree',
             'target': 'current',
         }

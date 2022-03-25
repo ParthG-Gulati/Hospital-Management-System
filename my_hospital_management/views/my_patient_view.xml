@@ -56,15 +56,15 @@
                 <xpath expr="//field[@name='parent_id']" position="attributes">
                     <attribute name="attrs">{'invisible': 1}</attribute>
                 </xpath>
-                <xpath expr="//button[@name='action_event_view']" position="replace">
+<!--                <xpath expr="//button[@name='action_event_view']" position="replace">-->
 
-                </xpath>
+<!--                </xpath>-->
 <!--                <xpath expr="//button[@name='186']" position="replace"/>-->
 <!--                <xpath expr="//button[@name='912']" position="replace"/>-->
 <!--                <xpath expr="//button[@name='910']" position="replace"/>-->
 <!--                <xpath expr="//button[@name='311']" position="replace"/>-->
-                <xpath expr="//button[@name='action_view_courses']" position="replace"/>
-                <xpath expr="//button[@name='action_open_employees']" position="replace"/>
+<!--                <xpath expr="//button[@name='action_view_courses']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='action_open_employees']" position="replace"/>-->
 
 
                 <!--                <xpath expr="//field[@name='type']" position="attributes">-->
@@ -92,12 +92,6 @@
                     <attribute name="string">Address</attribute>
                 </xpath>
 
-                <xpath expr="//page[@name='contact_addresses']" position="replace">
-                </xpath>
-
-<!--                <xpath expr="//page[@name='sales_purchases']" position="replace">-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='user_id']" position="replace"/>-->
                 <xpath expr="//page[@name='sales_purchases']" position="attributes">
                     <attribute name="attrs">{'invisible':1}</attribute>
                 </xpath>
@@ -227,6 +221,17 @@
 
     </record>
 
+    <record id="project_hospital_patient_graph" model="ir.ui.view">
+        <field name="name">res.partner.graph</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <graph string="Appointment Graph" type="bar">
+                <field name="name"/>
+                <field name="appointment_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
 
     <record id="view_patient_tree" model="ir.ui.view">
         <field name="name">my_hospital_management.patient.tree</field>
@@ -265,7 +270,7 @@
         <field name="name">Patients</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
-        <field name="view_mode">kanban,form,tree</field>
+        <field name="view_mode">kanban,form,tree,graph</field>
         <!--        <field name="help" type="html">-->
         <!--            <p class="o_view_nocontent_smiling_face">-->
         <!--                Create your new patient!-->
