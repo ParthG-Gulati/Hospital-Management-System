@@ -60,7 +60,7 @@
 
     <menuitem id="menu_dashboard"
               name="Dashboard"
-              parent="my_hospital_management_root"
+              parent="my_hospital_configuration_root"
               action="hospital_dashboard"
               sequence="1"/>
 </odoo>

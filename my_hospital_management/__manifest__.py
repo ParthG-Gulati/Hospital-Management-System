@@ -30,6 +30,7 @@
         'views/website_appointment.xml',
         'views/website_registration.xml',
         'views/dashboard.xml',
+        'views/settings.xml',
         'reports/lab_report.xml',
         'reports/patient_report.xml',
         'reports/patient_prescription_report.xml',

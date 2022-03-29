@@ -47,7 +47,7 @@
 
                         <field name="prescription_line_ids" nolabel="1">
                             <tree editable="bottom">
-                                <field name="medicine_name"/>
+                                <field name="medicine_name" domain="['|',('detailed_type', '=', 'product'), ('detailed_type', '=', 'consu')]"/>
                                 <field name="medicine_dose"/>
                                 <field name="medicine_time"/>
                                 <field name="medicine_timing"/>

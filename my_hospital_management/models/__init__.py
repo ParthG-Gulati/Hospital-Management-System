@@ -19,4 +19,5 @@ from . import disease_name
 from . import disease_report
 from . import my_vaccination
 from . import my_medication_line
+from . import settings
 

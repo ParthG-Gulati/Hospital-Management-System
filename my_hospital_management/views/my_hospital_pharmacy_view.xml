@@ -96,10 +96,15 @@
               name="My Hospital Management"
               sequence="1"/>
 
+    <menuitem id="my_hospital_configuration_root"
+              name="Configurations"
+              parent="my_hospital_management_root"
+              sequence="100"/>
+
     <menuitem id="my_hospital_pharmacy_root"
               name="Pharmacy"
-              parent="my_hospital_management_root"
+              parent="my_hospital_configuration_root"
               action="my_pharmacy_action"
-              sequence="15"/>
+              sequence="10"/>
 
 </odoo>

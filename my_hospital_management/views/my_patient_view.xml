@@ -11,7 +11,9 @@
 <!--            <div class="oe_button_box" name="button_box"/>-->
 
             <xpath expr="//div[@class='alert alert-warning oe_edit_only']" position="after">
-                <button name="print_medical_card" type="object" string="Print Medical Card" class="oe_highlight"/>
+                <header>
+                    <button name="print_medical_card" type="object" string="Print Medical Card" class="oe_highlight"/>
+                </header>
             </xpath>
             <xpath expr="//button[@name='action_view_opportunity']" position="replace">
                 <button name="action_oppen_appointment" type="object" class="oe_stat_button" icon="fa-calendar">
