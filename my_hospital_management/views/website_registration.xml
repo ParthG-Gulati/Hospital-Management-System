@@ -32,7 +32,7 @@
                                                 <!--                                                <label class="form-label" for="registry_email">Your Email</label>-->
                                             </div>
 
-                                            <div class="form-outline mb-4">
+                                            <div class="c">
                                                 <input type="password" name="registry_pass"
                                                        t-att-value="registry_pass" id="registry_pass"
                                                        placeholder="Password"

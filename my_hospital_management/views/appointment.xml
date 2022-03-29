@@ -133,11 +133,60 @@
             </tree>
         </field>
     </record>
+
+
+    <record id="calendar_event_kanban" model="ir.ui.view">
+        <field name="name">calendar.event.kanban</field>
+        <field name="model">calendar.event</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state_appo">
+                <field name="name"/>
+                <field name="patient_app"/>
+                <field name="doctor_app"/>
+                <field name="start"/>
+                <field name="duration"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kaban_details">
+                                <ul>
+                                    <ul>
+                                        Meeting Subject:
+                                        <field name="name"/>
+                                    </ul>
+                                    <ul>
+                                        Patient Name:
+                                        <field name="patient_app"/>
+                                    </ul>
+                                    <ul>
+                                        Doctor :
+                                        <field name="doctor_app"/>
+                                    </ul>
+                                    <ul>
+                                        Appointment Date:
+                                        <field name="start"/>
+                                    </ul>
+                                    <ul>
+                                        Duration :
+                                        <field name="duration"/>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+
+    </record>
+
+
     <record id="calendar_event_action" model="ir.actions.act_window">
         <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">calendar.event</field>
-        <field name="view_mode">calendar,tree,form</field>
+        <field name="view_mode">calendar,tree,form,kanban</field>
         <!--        <field name="help" type="html">-->
         <!--            <p class="o_view_nocontent_smiling_face">-->
         <!--                Create your new patient!-->

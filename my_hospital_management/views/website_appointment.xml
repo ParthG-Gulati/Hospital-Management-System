@@ -8,51 +8,72 @@
     </record>
     <template id="book_appointment_online" name="Book Appointment">
         <t t-call="website.layout">
-            <div class="oe_structure">
-                <div class="container">
-                    <form role="form" method="POST" action="/appointment/placed">
-                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                        <div class="form-group">
-                            <label for="patient_name" class="control-label">Patient Name</label>
-                            <select name="patient_name" class="form-control link-style">
-                                <t t-foreach="patient_record" t-as="patient">
-                                    <option t-esc="patient.name" t-att-value="patient.id"/>
-                                </t>
-                            </select>
+            <section class="vh-100">
+                <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                    <div class="container h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                                <div class="card" style="border-radius: 15px;">
+                                    <div class="card-body p-5">
+                                        <h2 class="text-uppercase text-center mb-5">Create an Appointment</h2>
+                                        <form role="form" method="POST" action="/appointment/placed">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <div class="form-outline mb-4">
+<!--                                                <label for="patient_name" class="control-label">Patient Name</label>-->
+                                                <select name="patient_name" class="form-control form-control-lg" placeholder="Select Patient">
+                                                    <t t-foreach="patient_record" t-as="patient">
+                                                        <option t-esc="patient.name" t-att-value="patient.id"/>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="form-outline mb-4">
+<!--                                                <label for="doctor_name" class="control-label">Doctor Name</label>-->
+                                                <select name="doctor_name" class="form-control form-control-lg" placeholder="Select Doctor">
+                                                    <t t-foreach="doctor_record" t-as="doctor">
+                                                        <option t-esc="doctor.name" t-att-value="doctor.id"/>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="form-outline mb-4">
+<!--                                                <label for="meeting_subject" class="control-label">Meeting Subject-->
+<!--                                                </label>-->
+                                                <input type="text" name="meeting_subject" t-att-value="meeting_subject"
+                                                       id="meeting_subject" placeholder="Meeting Subject"
+                                                       class="form-control form-control-lg" required="required"/>
+                                            </div>
+                                            <div class="form-outline mb-4">
+<!--                                                <label for="appoitment_date" class="control-lable">Appointment Date-->
+<!--                                                </label>-->
+                                                <input type="datetime-local" name="appointment_date"
+                                                       t-att-value="appointment_date"
+                                                       id="appointment_date" class="form-control form-control-lg" required="required"/>
+                                            </div>
+                                            <div class="form-outline mb-4">
+<!--                                                <label for="appoitment_date_end" class="control-lable">Appointment-->
+<!--                                                    Ends-->
+<!--                                                </label>-->
+                                                <input type="datetime-local" name="appointment_date_end"
+                                                       t-att-value="appointment_date_end"
+                                                       id="appointment_date_end" class="form-control form-control-lg"
+                                                       required="required"/>
+                                            </div>
+                                            <!--                                                 <div class="form-group">-->
+                                            <!--                                                     <label for="duration" class="control-label">Duration :</label>-->
+                                            <!--                                                     <input type="number" name="duration" t-att-value="duration" id="duration" required="required"/>-->
+                                            <!--                                                 </div>-->
+                                            <div class="d-flex justify-content-center">
+                                                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Book
+                                                    Appointment
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="doctor_name" class="control-label">Doctor Name</label>
-                            <select name="doctor_name" class="form-control link-style">
-                                <t t-foreach="doctor_record" t-as="doctor">
-                                    <option t-esc="doctor.name" t-att-value="doctor.id"/>
-                                </t>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="meeting_subject" class="control-label">Meeting Subject</label>
-                            <input type="text" name="meeting_subject" t-att-value="meeting_subject" id="meeting_subject"
-                                   class="form-control" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="appoitment_date" class="control-lable">Appointment Date</label>
-                            <input type="datetime-local" name="appointment_date" t-att-value="appointment_date"
-                                   id="appointment_date" class="form-control" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="appoitment_date_end" class="control-lable">Appointment Ends</label>
-                            <input type="datetime-local" name="appointment_date_end" t-att-value="appointment_date_end"
-                                   id="appointment_date_end" class="form-control" required="required"/>
-                        </div>
-<!--                                                 <div class="form-group">-->
-<!--                                                     <label for="duration" class="control-label">Duration :</label>-->
-<!--                                                     <input type="number" name="duration" t-att-value="duration" id="duration" required="required"/>-->
-<!--                                                 </div>-->
-                        <div class="oe_login_buttons">
-                            <button type="submit" class="btn btn-primary pull-left">Book Appointment</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </section>
         </t>
     </template>
     <record id="appointment_submit" model="website.page">
