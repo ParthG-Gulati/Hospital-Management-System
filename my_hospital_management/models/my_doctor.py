@@ -9,7 +9,8 @@ class HrEmployee(models.Model):
         ('shiftthree', '22:00 - 06:00 hours'),
     ], required=True, default='shiftone', string='Shift')
     doctor_visitor = fields.Boolean(string="Visitor", default=False)
-    doc_appointment_count = fields.Integer(string='Appointmnt Count', compute='doctor_appointment_count',store=True)
+    doc_appointment_count = fields.Integer(string='Appointmnt Count', compute='doctor_appointment_count')
+    doctor_address = fields.Text(string='Address')
 
 
     def doctor_appointment_count(self):
@@ -27,3 +28,4 @@ class HrEmployee(models.Model):
             'view_mode': 'calendar,form,tree',
             'target': 'current',
         }
+    

@@ -12,6 +12,20 @@ class HospitalAppointmentInherited(models.Model):
         ('cancel','Cancel')
     ])
 
+    # _sql_constraints = [
+    #     ('user_unique_appointment', 'UNIQUE(start)', 'Other Appointment On similar Timeslot. Please try with the other slot')
+    # ]
+
+    # _sql_constraints = [
+    #     ('new_user_unique_appointment', 'check(UNIQUE(start) and UNIQUE(doctor_app))',
+    #      'Other Appointment On similar Timeslot. Please try with the other slot')
+    # ]
+
+    _sql_constraints = [
+        ('user_appoint', 'UNIQUE(start)',
+         'Other Appointment On similar Timeslot. Please try with the other slot')
+    ]
+
     def action_confirm(self):
         for rec in self:
             rec.state_appo = 'confirm'

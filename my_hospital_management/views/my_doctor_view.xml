@@ -56,6 +56,29 @@
                 <xpath expr="//field[@name='work_email']" position="after">
                     <field name="user_id"/>
                 </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="string">Manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='address_home_id']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1 }</attribute>
+                </xpath>
+                <xpath expr="//field[@name='private_email']" position="replace">
+                    <field name="doctor_address" string="Address"/>
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="replace"/>
+                <xpath expr="//field[@name='identification_id']" position="attributes">
+                    <attribute name="string">PAN No</attribute>
+                </xpath>
+                <xpath expr="//field[@name='bank_account_id']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1 }</attribute>
+                </xpath>
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1 }</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1 }</attribute>
+                </xpath>
 
 
             </data>
