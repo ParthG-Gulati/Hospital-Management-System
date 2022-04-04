@@ -10,7 +10,7 @@
     'category': 'Productivity',
     'website': 'https://www.odoo.com',
     'images': [],
-    'depends': ['base', 'hr', 'calendar', 'sale', 'sale_management', 'account', 'stock', 'board'],
+    'depends': ['base', 'hr', 'calendar', 'sale', 'sale_management', 'account', 'stock', 'board', 'sale_stock'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
@@ -28,7 +28,6 @@
         'views/my_invoicing_view.xml',
         'views/my_prescription_view.xml',
         'views/website_appointment.xml',
-        'views/website_registration.xml',
         'views/dashboard.xml',
         'views/settings.xml',
         'reports/lab_report.xml',

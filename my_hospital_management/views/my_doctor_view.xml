@@ -97,7 +97,7 @@
         <field name="arch" type="xml">
             <graph string="Appointment Graph" type="bar">
                 <field name="name"/>
-                <field name="doc_appointment_count" type="measure"/>
+<!--                <field name="doc_appointment_count" type="measure"/>-->
             </graph>
         </field>
     </record>
