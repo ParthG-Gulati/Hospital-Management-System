@@ -151,7 +151,7 @@
                     <group>
                         <field name="medication_line_ids">
                             <tree editable="bottom">
-                                <field name="medication_name"/>
+                                <field name="medication_name" domain="['|',('detailed_type', '=', 'product'), ('detailed_type', '=', 'consu')]"/>
                                 <field name="medication_dose"/>
                                 <field name="medication_time"/>
                                 <field name="medication_timing"/>

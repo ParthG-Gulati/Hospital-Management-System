@@ -33,7 +33,6 @@ class ResPartner(models.Model):
     appointment_count = fields.Integer(string='Appointmnt Count',compute='patient_appointment_count')
     lab_count = fields.Integer(string='Lab reports',compute='patient_lab_count')
     prescription_count = fields.Integer(string='Prescription',compute='patient_prescription_count')
-    #
     # @api.constrains('pat_age')
     # def check_age(self):
     #     '''To Validate Age Cannot be 0'''
@@ -58,7 +57,7 @@ class ResPartner(models.Model):
     def patient_appointment_count(self):
         '''Patients Appointments Count'''
         for rec in self:
-            appointment_count=self.env['calendar.event'].search_count([('partner_ids','=',rec.id)])
+            appointment_count=self.env['calendar.event'].search_count([('patient_app','=',rec.id)])
             rec.appointment_count = appointment_count
 
     def action_oppen_appointment(self):
