@@ -24,6 +24,8 @@ class LabManagement(models.Model):
         ('other', 'Other')
     ], string='Gender', default='male')
     patient_contact = fields.Char(string='Mobile No.')
+    user_id = fields.Many2one('res.users', string='User')
+    mail_id = fields.Char(string='Email')
 
     @api.model
     def create(self, vals):
@@ -34,4 +36,10 @@ class LabManagement(models.Model):
 
     def print_lab_test(self):
         return self.env.ref('my_hospital_management.patient_lab_report').report_action(self)
+
+    def action_send_card(self):
+        '''Send Mail action for Lab report'''
+        template_id = self.env.ref('my_hospital_management.prescription_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
 

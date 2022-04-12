@@ -12,6 +12,8 @@ class HospitalPrescription(models.Model):
     prescription_line_ids = fields.One2many('prescription.line', 'medicine_id', 'Patient Name')
     patient_diet = fields.Text(string='Diet Suggestion')
     diet_notes = fields.Text(string='Notes')
+    email_id = fields.Char(string='Email')
+    user_id = fields.Many2one('res.users', 'User')
 
     def print_report(self):
         return self.env.ref('my_hospital_management.patient_prescription_report').report_action(self)
@@ -24,12 +26,9 @@ class HospitalPrescription(models.Model):
         res = super(HospitalPrescription, self).create(vals)
         return res
 
-    def mv(self):
-        r_obj = self.env['my_hospital.prescription']
-        r_list = r_obj.search(["pati"])
-        r_read1 = r_obj.read([])
-        r_read = r_list.read([])
-        print("search......",r_list)
-        print("read1......",r_read1)
-        print("read......",r_read)
+    def send_prescription(self):
+        '''Send Mail action for Prescription'''
+        template_id = self.env.ref('my_hospital_management.prescription_card_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
 

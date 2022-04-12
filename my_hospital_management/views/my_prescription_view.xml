@@ -20,7 +20,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="mv" type="object" string="Print" class="oe_highlight"/>
+                    <button name="print_report" type="object" string="Print" class="oe_highlight"/>
+                    <button name="send_prescription" type="object" string="Send Prescription" class="oe_highlight"/>
                 </header>
                 <sheet>
 
@@ -35,10 +36,12 @@
                         <group>
                             <field name="patient_prescription_name_id"/>
                             <field name="prescription_date"/>
+                            <field name="user_id"/>
                         </group>
 
                         <group>
                             <field name="doctor_prescription_name_id"/>
+                            <field name="email_id"/>
                         </group>
 
                     </group>
@@ -47,7 +50,8 @@
 
                         <field name="prescription_line_ids" nolabel="1">
                             <tree>
-                                <field name="medicine_name" domain="['|',('detailed_type', '=', 'product'), ('detailed_type', '=', 'consu')]"/>
+                                <field name="medicine_name"
+                                       domain="['|',('detailed_type', '=', 'product'), ('detailed_type', '=', 'consu')]"/>
                                 <field name="medicine_dose"/>
                                 <field name="medicine_time" widget="many2many_tags"/>
                                 <field name="medicine_timing"/>
@@ -71,11 +75,11 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">my_hospital.prescription</field>
         <field name="view_mode">tree,form</field>
-                <field name="help" type="html">
-                    <p class="o_view_nocontent_smiling_face">
-                        Create new prescription!
-                    </p>
-                </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new prescription!
+            </p>
+        </field>
 
 
     </record>
