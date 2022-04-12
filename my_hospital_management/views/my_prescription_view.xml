@@ -21,6 +21,7 @@
             <form>
                 <header>
                     <button name="print_report" type="object" string="Print" class="oe_highlight"/>
+                    <button name="send_prescription" type="object" string="Send Prescription" class="oe_highlight"/>
                 </header>
                 <sheet>
 
@@ -35,10 +36,12 @@
                         <group>
                             <field name="patient_prescription_name_id"/>
                             <field name="prescription_date"/>
+                            <field name="user_id"/>
                         </group>
 
                         <group>
                             <field name="doctor_prescription_name_id"/>
+                            <field name="email_id"/>
                         </group>
 
                     </group>

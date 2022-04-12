@@ -22,7 +22,9 @@
             <form>
                 <header>
                     <button name="print_lab_test" type="object" string="Print Report" class="oe_highlight"/>
+                    <button name="action_send_card" type="object" string="Send by Email" class="oe_highlight"/>
                 </header>
+
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -36,6 +38,7 @@
                             <field name="requested_date"/>
                             <field name="patient_age"/>
                             <field name="patient_contact"/>
+                            <field name="user_id"/>
                         </group>
 
                         <group>
@@ -43,6 +46,7 @@
                             <field name="lab_doctor"/>
                             <field name="analysis_date"/>
                             <field name="patient_gender"/>
+                            <field name="mail_id"/>
                         </group>
                     </group>
 

@@ -66,7 +66,7 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
             'name': 'Appointments',
             'res_model':'calendar.event',
-            'domain' : [('partner_ids','=',self.id)],
+            'domain' : [('patient_app','=',self.id)],
             'view_mode': 'calendar,form,tree',
             'target': 'current',
         }
@@ -109,6 +109,9 @@ class ResPartner(models.Model):
     def print_medical_card(self):
         return self.env.ref('my_hospital_management.patient_medical_report_card').report_action(self)
 
+    def action_medical_card(self):
+        '''Send mail action for medical card'''
 
-
-
+        template_id = self.env.ref('my_hospital_management.medical_card_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <data>
+        <!--Email template for laboratory-->
+
+        <record id="prescription_email_template" model="mail.template">
+            <field name="name">Laboratory: Send by email</field>
+            <field name="model_id" ref="my_hospital_management.model_hospital_laboratory"/>
+            <field name="email_from">{{object.user_id.email_formatted}}</field>
+            <field name="email_to">{{object.mail_id}}</field>
+            <field name="subject">Laboratory Report (Ref {{object.test_no}}</field>
+            <field name="body_html" type="html">
+                <br></br>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-out="object.lab_patient.name"/>
+                        <br></br>
+                        Here is your Laboratory Report with reference <t t-out="object.test_no"/>
+                        <br></br>
+                        Thank you for visiting us :)
+                        <br></br>
+                        Hope You liked the service....
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="patient_lab_report"/>
+            <field name="report_name">Laboratory Report_${object.test_no}</field>
+        </record>
+
+        <!--Email template for medical card-->
+
+        <record id="medical_card_email_template" model="mail.template">
+            <field name="name">Medical Card: Send by email</field>
+            <field name="model_id" ref="my_hospital_management.model_res_partner"/>
+            <field name="email_from">demoodoo965@gmail.com</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="subject">Medical Card (Ref {{object.reference}}</field>
+            <field name="body_html" type="html">
+                <br></br>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-out="object.name"/>
+                        <br></br>
+                        Here is your Medical with reference <t t-out="object.reference"/>
+                        <br></br>
+                        Thank you for visiting us :)
+                        <br></br>
+                        Hope You liked the service....
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="patient_medical_report_card"/>
+            <field name="report_name">Medical Card_{{object.reference}}</field>
+        </record>
+
+<!--        Email Template for prescription-->
+
+        <record id="prescription_card_email_template" model="mail.template">
+            <field name="name">Prescription Card: Send by email</field>
+            <field name="model_id" ref="my_hospital_management.model_my_hospital_prescription"/>
+            <field name="email_from">{{object.user_id.email_formatted}}</field>
+            <field name="email_to">{{object.email_id}}</field>
+            <field name="subject">Prescription Card (Ref {{object.prescription_id}}</field>
+            <field name="body_html" type="html">
+                <br></br>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear <t t-out="object.patient_prescription_name_id.name"/>
+                        <br></br>
+                        Here is your Prescription with reference <t t-out="object.prescription_id"/>
+                        <br></br>
+                        Thank you for visiting us :)
+                        <br></br>
+                        Hope You liked the service....
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="patient_prescription_report"/>
+            <field name="report_name">Prescription_{{object.prescription_id}}</field>
+        </record>
+
+    </data>
+</odoo>

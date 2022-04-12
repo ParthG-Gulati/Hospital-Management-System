@@ -13,6 +13,7 @@
             <xpath expr="//div[@class='alert alert-warning oe_edit_only']" position="after">
                 <header>
                     <button name="print_medical_card" type="object" string="Print Medical Card" class="oe_highlight"/>
+                    <button name="action_medical_card" type="object" string="Send Medical Card" class="oe_highlight"/>
                 </header>
             </xpath>
             <xpath expr="//button[@name='action_view_opportunity']" position="replace">
@@ -58,14 +59,17 @@
                 <xpath expr="//field[@name='parent_id']" position="attributes">
                     <attribute name="attrs">{'invisible': 1}</attribute>
                 </xpath>
-<!--                <xpath expr="//button[@name='action_event_view']" position="replace">-->
 
+                <xpath expr="//button[@name='schedule_meeting']" position="replace">
+                </xpath>
+
+<!--                <xpath expr="//button[@name='305']" position="replace">-->
 <!--                </xpath>-->
-<!--                <xpath expr="//button[@name='186']" position="replace"/>-->
-<!--                <xpath expr="//button[@name='912']" position="replace"/>-->
-<!--                <xpath expr="//button[@name='910']" position="replace"/>-->
-<!--                <xpath expr="//button[@name='311']" position="replace"/>-->
-<!--                <xpath expr="//button[@name='action_view_courses']" position="replace"/>-->
+
+<!--                <xpath expr="//button[@name='990']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='993']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='991']" position="replace"/>-->
+<!--                <xpath expr="//button[@name='action_view_partner_invoices']" position="replace"/>-->
 <!--                <xpath expr="//button[@name='action_open_employees']" position="replace"/>-->
 
 
@@ -105,7 +109,7 @@
                 </xpath>
 
                 <xpath expr="//field[@name='pat_age']" position="before">
-                    <field name="pat_gender" string="Gender"/>
+                    <field name="pat_gender" string="Gender" widget="selection_badge"/>
                 </xpath>
 
                 <xpath expr="//field[@name='pat_gender']" position="before">
@@ -229,7 +233,7 @@
         <field name="arch" type="xml">
             <graph string="Appointment Graph" type="bar">
                 <field name="name"/>
-                <field name="appointment_count" type="measure"/>
+<!--                <field name="appointment_count" type="measure"/>-->
             </graph>
         </field>
     </record>

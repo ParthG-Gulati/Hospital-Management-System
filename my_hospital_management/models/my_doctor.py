@@ -10,7 +10,7 @@ class HrEmployee(models.Model):
     ], required=True, default='shiftone', string='Shift')
     doctor_visitor = fields.Boolean(string="Visitor", default=False)
     doc_appointment_count = fields.Integer(string='Appointmnt Count', compute='doctor_appointment_count')
-    # doctor_address = fields.Text(string='Address')
+    doctor_address = fields.Text(string='Address')
 
     def doctor_appointment_count(self):
         '''Appointments Counts for doctors'''
