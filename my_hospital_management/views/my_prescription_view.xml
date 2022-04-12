@@ -20,7 +20,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="print_report" type="object" string="Print" class="oe_highlight"/>
+                    <button name="mv" type="object" string="Print" class="oe_highlight"/>
                 </header>
                 <sheet>
 
@@ -46,10 +46,10 @@
                     <group string="Prescription Detail">
 
                         <field name="prescription_line_ids" nolabel="1">
-                            <tree editable="bottom">
+                            <tree>
                                 <field name="medicine_name" domain="['|',('detailed_type', '=', 'product'), ('detailed_type', '=', 'consu')]"/>
                                 <field name="medicine_dose"/>
-                                <field name="medicine_time"/>
+                                <field name="medicine_time" widget="many2many_tags"/>
                                 <field name="medicine_timing"/>
                             </tree>
                         </field>

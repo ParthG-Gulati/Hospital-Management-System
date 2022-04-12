@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="menu_patient_prescription" model="website.menu">
+        <field name="name">patient prescription</field>
+        <field name="url">/patient/prescription</field>
+        <field name="parent_id" ref="website.main_menu"></field>
+        <field name="sequence" type="int">11</field>
+    </record>
+
+    <record id="patient_prescription_details" model="website.page">
+        <field name="name">Prescription Datails</field>
+        <field name="type">qweb</field>
+        <field name="url">/patient/prescription</field>
+        <field name="website_published">True</field>
+        <field name="key">my_hospital_management.patient_prescription_details</field>
+        <field name="arch" type="xml">
+            <t name="Prescription Details" t-name="my_hospital_management.patient_prescription_details">
+                <t t-call="website.layout">
+                    <div class="container">
+                        <br/>
+                        <div class="container">
+                            <h3 style="text-align:center;">Patient prescriptions record</h3>
+                        </div>
+                        <br/>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Doctor Name</td>
+                                    <td>Prescription Date</td>
+                                    <td>Diet Suggestion</td>
+                                    <td>Medicine</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="prescription_record" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="(o.doctor_prescription_name_id).name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o.prescription_date"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o.patient_diet"/>
+                                        </td>
+                                        <td>
+                                            <t t-foreach="o.prescription_line_ids" t-as="line">
+                                                    <t t-esc="(line.medicine_name).name">
+                                                    </t><br/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+
+        </field>
+    </record>
+</odoo>

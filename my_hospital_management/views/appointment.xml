@@ -124,13 +124,21 @@
 
     </record>
 
-    <record id="calendar_event_tree" model="ir.ui.view">
-        <field name="name">calendar.event.tree</field>
+    <record id="calendar_event_calendar_viw" model="ir.ui.view">
+        <field name="name">calendar.event.calendarview</field>
         <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
         <field name="arch" type="xml">
-            <tree>
+            <data>
+                <xpath expr="//field[@name='partner_ids']" position="after">
+                    <field name="patient_app"/>
+                    <field name="doctor_app"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_ids']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+            </data>
 
-            </tree>
         </field>
     </record>
 

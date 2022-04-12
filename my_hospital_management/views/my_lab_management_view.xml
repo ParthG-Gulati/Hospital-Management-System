@@ -43,6 +43,7 @@
                             <field name="lab_doctor"/>
                             <field name="analysis_date"/>
                             <field name="patient_gender"/>
+                            <field name="manager_email"/>
                         </group>
                     </group>
 

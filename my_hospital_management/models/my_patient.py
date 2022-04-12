@@ -54,6 +54,7 @@ class ResPartner(models.Model):
         res = super(ResPartner, self).create(vals)
         return res
 
+
     def patient_appointment_count(self):
         '''Patients Appointments Count'''
         for rec in self:

@@ -17,6 +17,7 @@ class LabManagement(models.Model):
     test_id = fields.Many2one('test.name', 'Test Name', required=True)
     report_line_ids = fields.One2many('report.line', 'report_name', 'Tests')
     patient_age = fields.Integer(string='Age')
+    manager_email = fields.Many2one('res.users',string="Manager")
     patient_gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),

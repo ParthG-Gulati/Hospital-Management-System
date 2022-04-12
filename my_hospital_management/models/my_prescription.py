@@ -24,3 +24,12 @@ class HospitalPrescription(models.Model):
         res = super(HospitalPrescription, self).create(vals)
         return res
 
+    def mv(self):
+        r_obj = self.env['my_hospital.prescription']
+        r_list = r_obj.search(["pati"])
+        r_read1 = r_obj.read([])
+        r_read = r_list.read([])
+        print("search......",r_list)
+        print("read1......",r_read1)
+        print("read......",r_read)
+

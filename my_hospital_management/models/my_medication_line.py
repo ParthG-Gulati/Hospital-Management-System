@@ -9,11 +9,14 @@ class HospitalMedicationLine(models.Model):
     medication_name = fields.Many2one('product.template', string="Medicine")
 
     medication_dose = fields.Integer(string='Dose')
-    medication_time = fields.Selection([
-        ('morning', 'Morning'),
-        ('noon', 'Noon'),
-        ('night', 'Night')
-    ], default='morning', string="Time")
+    medi_time = fields.Many2many('medication.time' , string="Time")
+
+    # medication_time = fields.Selection([
+    #     ('morning', 'Morning'),
+    #     ('noon', 'Noon'),
+    #     ('night', 'Night')
+    # ], default='morning', string="Time")
+
     medication_timing = fields.Selection([
         ('before', 'Before Food'),
         ('after', 'After Food')
