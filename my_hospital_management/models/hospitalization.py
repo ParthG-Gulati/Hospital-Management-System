@@ -23,6 +23,8 @@ class HospitalizationInherited(models.Model):
 
     ])
 
+    discharge =fields.Boolean(string='Discharged')
+
     bed = fields.Selection([
         ('bed_001', 'BED 001'),
         ('bed_002', 'BED 002'),

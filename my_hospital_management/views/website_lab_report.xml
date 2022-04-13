@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="menu_all_records" model="website.menu">
+        <field name="name">My Records</field>
+        <!--        <field name="url">/patient/prescription</field>-->
+        <field name="parent_id" ref="website.main_menu"></field>
+        <field name="sequence" type="int">11</field>
+    </record>
+    <record id="menu_patient_labtest" model="website.menu">
+        <field name="name">Lab Records</field>
+        <field name="url">/patient/labreport</field>
+        <field name="parent_id" ref="menu_all_records"></field>
+        <field name="sequence" type="int">11</field>
+    </record>
+    <record id="patient_lab_details" model="website.page">
+        <field name="name">Lab Record</field>
+        <field name="type">qweb</field>
+        <field name="url">/patient/labreport</field>
+        <field name="website_published">True</field>
+        <field name="key">my_hospital_management.patient_lab_details</field>
+        <field name="arch" type="xml">
+            <t name="Lab Record" t-name="my_hospital_management.patient_lab_details">
+                <t t-call="website.layout">
+                    <div class="container">
+                        <br/>
+                        <div class="container">
+                            <h3 style="text-align:center;">Patient Lab record</h3>
+                        </div>
+                        <br/>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Test ID</td>
+                                    <td>Test Name</td>
+                                    <td>Pathologist</td>
+                                    <td>Suggested By</td>
+                                    <td>Report Requested Date</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="lab_record" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="o.test_no"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="(o.test_id).lab_test_name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="(o.lab_pathologist).name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="(o.lab_doctor).name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o.requested_date"/>
+                                        </td>
+
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+<!--                        <table class="table table-bordered">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <td>Result</td>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+                                <t t-foreach="lab_record" t-as="o">
+                                    <br></br>
+                                    <h3 style="text-align:center;"><t t-esc="(o.test_id).lab_test_name"/></h3>
+                                    <br></br>
+<!--                                    <td>-->
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <td>Test Type</td>
+                                                    <td>Result</td>
+                                                    <td>Normal Range</td>
+                                                    <td>Unit</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="o.report_line_ids" t-as="line">
+                                                    <tr>
+                                                        <td>
+                                                            <t t-esc="(line.lab_test_type).lab_test_type">
+                                                            </t>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="line.test_result">
+                                                            </t>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="line.normal_range">
+                                                            </t>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="line.test_unit">
+                                                            </t>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
+<!--                                    </td>-->
+                                </t>
+<!--                            </tbody>-->
+<!--                        </table>-->
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

@@ -89,6 +89,10 @@
                 <xpath expr="//page[@name='customer_signature']" position="replace">
                 </xpath>
 
+                <xpath expr="//field[@name='bed']" position="after">
+                    <field name="discharge" widget="boolean_toggle"/>
+                </xpath>
+
 
             </data>
         </field>
