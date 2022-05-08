@@ -21,4 +21,5 @@ from . import my_vaccination
 from . import my_medication_line
 from . import settings
 from . import time
+from . import patient_bed
 

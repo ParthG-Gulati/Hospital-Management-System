@@ -40,6 +40,9 @@
                     <field name="doctor_shift"></field>
                 </xpath>
 
+                <xpath expr="//button[@name='568']" position="replace">
+                </xpath>
+
                 <field name="doctor_shift" position="after">
                     <field name="doctor_visitor"/>
                 </field>
@@ -56,6 +59,11 @@
                 <xpath expr="//field[@name='work_email']" position="after">
                     <field name="user_id"/>
                 </xpath>
+
+                <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="attrs">{'invisible' : 1}</attribute>
+                </xpath>
+
                 <xpath expr="//field[@name='user_id']" position="attributes">
                     <attribute name="string">Manager</attribute>
                 </xpath>

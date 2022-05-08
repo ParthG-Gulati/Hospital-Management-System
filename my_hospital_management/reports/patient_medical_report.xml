@@ -45,7 +45,7 @@
                                                             <p style="text-align:center;" t-field="o.name"/>
                                                             <p style="text-align:center;" t-field="o.mobile"/>
                                                             <p style="text-align:left;" t-field="o.pat_age"/>
-                                                            <span style="text-align:center;" t-field="o.patient_blood_type"/>
+                                                            <span style="text-align:center;" t-field="o.blood"/>
                                                             <span style="text-align:center;" t-field="o.rh"/>
                                                         </td>
 
@@ -157,7 +157,7 @@
                                                                         <span t-field="line.medication_dose"/>
                                                                     </td>
                                                                     <td>
-                                                                        <span t-field="line.medication_time"/>
+                                                                        <span t-field="line.medi_time"/>
                                                                     </td>
                                                                     <td>
                                                                         <span t-field="line.medication_timing"/>

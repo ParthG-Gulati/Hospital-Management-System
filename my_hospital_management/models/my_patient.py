@@ -11,12 +11,20 @@ class ResPartner(models.Model):
     ],string='Gender', default='male')
     pat_age = fields.Integer(string='Patient_Age')
     reference = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
-    patient_blood_type = fields.Selection([
-        ('A', 'A'),
-        ('B', 'B'),
-        ('AB', 'AB'),
-        ('O', 'O')
+    # patient_blood_type = fields.Selection([
+    #     ('A', 'A'),
+    #     ('B', 'B'),
+    #     ('AB', 'AB'),
+    #     ('O', 'O')
+    # ], string='Blood Type')
+
+    blood = fields.Selection([
+        ('a', 'A'),
+        ('b', 'B'),
+        ('ab', 'AB'),
+        ('o', 'O')
     ], string='Blood Type')
+
     rh = fields.Selection([
         ('+', '+'),
         ('-', '-')

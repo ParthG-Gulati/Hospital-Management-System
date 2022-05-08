@@ -20,8 +20,11 @@ class HospitalizationInherited(models.Model):
         ('sale', 'Confirmed'),
         ('cancel', 'Cancel'),
         ('done', 'Done'),
+        ('discharge', 'Discharged')
 
     ])
+
+    patient_bed = fields.Many2one('bed.occupy', string='Bed')
 
     discharge =fields.Boolean(string='Discharged')
 
@@ -39,8 +42,8 @@ class HospitalizationInherited(models.Model):
     ], string='Bed')
 
     _sql_constraints = [
-        ('patient_bed', 'UNIQUE(bed)', 'Bed Already taken , please choose other bed ')
+        ('patient_bed', 'UNIQUE(patient_bed)', 'Bed Already taken , please choose other bed ')
     ]
 
-    # def action_discharge(self):
-    #     self.state = 'discharge'
+    def action_discharge(self):
+        self.discharge = True

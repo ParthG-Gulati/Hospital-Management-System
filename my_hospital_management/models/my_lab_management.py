@@ -5,7 +5,6 @@ class LabManagement(models.Model):
     _name = 'hospital.laboratory'
     _rec_name = 'test_no'
 
-
     test_no = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
                           default=lambda self: _('New'))
     lab_patient = fields.Many2one('res.partner', string='Patient', required=True)
@@ -25,7 +24,7 @@ class LabManagement(models.Model):
     ], string='Gender', default='male')
     patient_contact = fields.Char(string='Mobile No.')
     user_id = fields.Many2one('res.users', string='User')
-    mail_id = fields.Char(string='Email')
+    mail_id = fields.Char(string='Email', related='lab_patient.email')
 
     @api.model
     def create(self, vals):

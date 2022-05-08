@@ -32,6 +32,7 @@
         'views/website_labtest.xml',
         'views/website_prescription.xml',
         'views/website_lab_report.xml',
+        'views/website_dashboard.xml',
         'views/dashboard.xml',
         'views/settings.xml',
         'reports/lab_report.xml',

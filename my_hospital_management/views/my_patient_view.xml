@@ -42,6 +42,18 @@
                 </button>
             </xpath>
             <data>
+                <xpath expr="//button[@name='305']" position="replace">
+                </xpath>
+
+                <xpath expr="//button[@name='990']" position="replace">
+                </xpath>
+
+                <xpath expr="//button[@name='993']" position="replace">
+                </xpath>
+
+                <xpath expr="//button[@name='991']" position="replace">
+                </xpath>
+
                 <xpath expr="//field[@name='name']" position="before">
                     <field name="reference"/>
                 </xpath>
@@ -108,7 +120,7 @@
                 <page string="Basic Info">
                     <group string="Patient Basic info">
                         <group>
-                            <field name="patient_blood_type"/>
+                            <field name="blood"/>
                         </group>
                         <group>
                             <field name="rh"/>
@@ -263,41 +275,12 @@
         </field>
     </record>
 
-    <!--    <record id="view_patient_form" model="ir.ui.view">-->
-    <!--        <field name="name">my_hospital_management.patient.form</field>-->
-    <!--        <field name="model">res.partner</field>-->
-    <!--        <field name="arch" type="xml">-->
-    <!--            <form>-->
-    <!--                &lt;!&ndash;                <sheet>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                    <field name="image" widget="image" class="oe_left oe_avatar"/>&ndash;&gt;-->
-
-    <!--                &lt;!&ndash;                    <group>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                        <group>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                            <field name="name"/>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                            <field name="gender"/>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                        </group>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                        <group>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                            <field name="age"/>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                            <field name="notes"/>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                        </group>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                    </group>&ndash;&gt;-->
-    <!--                &lt;!&ndash;                </sheet>&ndash;&gt;-->
-    <!--            </form>-->
-    <!--        </field>-->
-    <!--    </record>-->
 
     <record id="my_patient_action" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">kanban,form,tree,graph</field>
-        <!--        <field name="help" type="html">-->
-        <!--            <p class="o_view_nocontent_smiling_face">-->
-        <!--                Create your new patient!-->
-        <!--            </p>-->
-        <!--        </field>-->
-
-
     </record>
 
 

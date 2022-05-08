@@ -49,7 +49,7 @@
                     <group string="Prescription Detail">
 
                         <field name="prescription_line_ids" nolabel="1">
-                            <tree>
+                            <tree editable="bottom">
                                 <field name="medicine_name"
                                        domain="['|',('detailed_type', '=', 'product'), ('detailed_type', '=', 'consu')]"/>
                                 <field name="medicine_dose"/>
